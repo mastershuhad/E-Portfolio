@@ -36,9 +36,9 @@
 			display: inline-block;
 			padding: 5px 14px;
 			border-radius: 20px;
-			background: rgba(10, 20, 40, 0.75);
-			border: 1px solid rgba(80, 140, 255, 0.45);
-			color: #7db8f7;
+			background: rgba(140, 132, 18, 0.192);
+			border: 1px solid rgba(255,189,57,0.45);
+			color: #ffbd39;
 			font-size: 12px;
 			font-weight: 500;
 			letter-spacing: 0.3px;
@@ -47,8 +47,8 @@
 		}
 
 		.stack-badge:hover {
-			border-color: rgba(80, 140, 255, 0.9);
-			color: #aed4ff;
+			border-color: rgba(255,189,57,0.95);
+			color: #ffe9b3;
 		}
 		.project-desc {
 			font-size: 12px;
@@ -61,8 +61,8 @@
 		.project-card-wrap {
 			border-radius: 10px;
 			overflow: hidden;
-			background: #1e1e2f;
-			box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+			background: rgba(255,255,255,0.08);
+			box-shadow: 0 20px 69px -27px rgba(0,0,0,0.17);
 			margin-bottom: 30px;
 			transition: transform 0.3s, box-shadow 0.3s;
 		}
@@ -113,13 +113,56 @@
 		.dark-section .lead { color: rgba(255,255,255,0.78) !important; }
 		.dark-section .heading-section h2, .dark-section .heading-section h1 { color: rgba(255,255,255,0.95) !important; }
 
+		/* Hero image float + subtle background motion */
+		.one-third.img {
+			transition: transform 0.2s linear;
+			animation: heroFloat 8s ease-in-out infinite;
+			background-size: cover;
+			background-position: center center;
+		}
+		@keyframes heroFloat {
+			0% { transform: translateY(0px) rotate(0.0deg); background-position: 50% 50%; }
+			25% { transform: translateY(-8px) rotate(-0.3deg); background-position: 48% 52%; }
+			50% { transform: translateY(0px) rotate(0.0deg); background-position: 50% 50%; }
+			75% { transform: translateY(6px) rotate(0.2deg); background-position: 52% 48%; }
+			100% { transform: translateY(0px) rotate(0.0deg); background-position: 50% 50%; }
+		}
+
 		/* Dark contact form styles (updated to match provided design) */
+		:root{
+			--panel-bg: rgba(255,255,255,0.04);
+			--panel-bg-strong: #1a1a2e;
+			--accent: #ffbd39;
+			--panel-shadow: 0 8px 30px rgba(0,0,0,0.5);
+		}
 		.dark-contact {
 			background: #1d2328 !important;
 			color: rgba(255,255,255,0.95) !important;
 			padding: 36px !important;
 			border-radius: 6px !important;
 		}
+
+		/* General panel/card style for sections */
+		.panel-card {
+			background: var(--panel-bg) !important;
+			color: rgba(255,255,255,0.92) !important;
+			padding: 28px !important;
+			border-radius: 8px !important;
+			box-shadow: var(--panel-shadow) !important;
+			border-left: 5px solid rgba(255,189,57,0.12) !important;
+		}
+
+		/* Stronger panel used for modal content or prominent cards */
+		.panel-card-strong { background: var(--panel-bg-strong) !important; border-left-color: var(--accent) !important; }
+
+		/* Reflection card class (replaces inline styles) */
+		.reflect-card { background: var(--panel-bg) !important; color: rgba(255,255,255,0.92) !important; padding: 35px 40px; border-radius:8px; border-left: 5px solid var(--accent) !important; box-shadow: var(--panel-shadow); }
+
+		/* Contact info small boxes */
+		.align-self-stretch.box { background: var(--panel-bg) !important; border-radius:8px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); color: rgba(255,255,255,0.92); }
+
+		/* Resume entries */
+		.resume-wrap { background: var(--panel-bg) !important; padding: 22px !important; border-radius: 8px; box-shadow: 0 12px 30px rgba(0,0,0,0.32); border-left: 5px solid var(--accent) !important; }
 		.dark-contact .form-control {
 			background: #23272b !important;
 			border: 1px solid rgba(255,255,255,0.04) !important;
@@ -249,6 +292,11 @@
 			height: 100%;
 			border: none;
 		}
+
+		/* Section animated background canvas */
+		.animated-bg { position: relative; overflow: hidden; }
+		.animated-bg > .container { position: relative; z-index: 1; }
+		.section-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 	</style>
 </head>
 
@@ -486,7 +534,7 @@
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-no-pb" id="resume-section">
+	<section class="ftco-section ftco-no-pb animated-bg" id="resume-section">
 		<div class="container">
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-10 heading-section text-center ftco-animate">
@@ -557,7 +605,7 @@
 
 
 
-	<section class="ftco-section" id="skills-section">
+	<section class="ftco-section animated-bg" id="skills-section">
 		<div class="container">
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-12 heading-section text-center ftco-animate">
@@ -572,108 +620,140 @@
 					<div class="progress-wrap ftco-animate">
 						<h3>HTML / CSS</h3>
 						<div class="progress">
-							<div class="progress-bar color-1" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-								aria-valuemax="100" style="width:90%">
+							<div class="progress-bar color-1" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
 								<span>90%</span>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="col-md-6 animate-box">
 					<div class="progress-wrap ftco-animate">
-						<h3>JavaScript</h3>
+						<h3>C</h3>
 						<div class="progress">
-							<div class="progress-bar color-2" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-								aria-valuemax="100" style="width:70%">
-								<span>70%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Python</h3>
-						<div class="progress">
-							<div class="progress-bar color-3" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-								aria-valuemax="100" style="width:75%">
-								<span>75%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>PHP</h3>
-						<div class="progress">
-							<div class="progress-bar color-4" role="progressbar" aria-valuenow="65" aria-valuemin="0"
-								aria-valuemax="100" style="width:65%">
-								<span>65%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Java</h3>
-						<div class="progress">
-							<div class="progress-bar color-5" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-								aria-valuemax="100" style="width:60%">
-								<span>60%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>MySQL</h3>
-						<div class="progress">
-							<div class="progress-bar color-6" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-								aria-valuemax="100" style="width:70%">
-								<span>70%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Figma / UI-UX Design</h3>
-						<div class="progress">
-							<div class="progress-bar color-1" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-								aria-valuemax="100" style="width:75%">
-								<span>75%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Adobe Photoshop / Canva</h3>
-						<div class="progress">
-							<div class="progress-bar color-2" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-								aria-valuemax="100" style="width:80%">
+							<div class="progress-bar color-2" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
 								<span>80%</span>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>Adobe Photoshop / Canva</h3>
+						<div class="progress">
+							<div class="progress-bar color-3" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+								<span>80%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<div class="col-md-6 animate-box">
 					<div class="progress-wrap ftco-animate">
 						<h3>Git / GitHub</h3>
 						<div class="progress">
-							<div class="progress-bar color-3" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-								aria-valuemax="100" style="width:70%">
+							<div class="progress-bar color-4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+								<span>80%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>AutoCAD</h3>
+						<div class="progress">
+							<div class="progress-bar color-5" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+								<span>80%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>Figma / UI-UX Design</h3>
+						<div class="progress">
+							<div class="progress-bar color-6" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+								<span>75%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>Python</h3>
+						<div class="progress">
+							<div class="progress-bar color-1" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+								<span>75%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>Microsoft Office</h3>
+						<div class="progress">
+							<div class="progress-bar color-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+								<span>75%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>JavaScript</h3>
+						<div class="progress">
+							<div class="progress-bar color-3" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
 								<span>70%</span>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="col-md-6 animate-box">
 					<div class="progress-wrap ftco-animate">
-						<h3>AutoCAD</h3>
+						<h3>Kotlin</h3>
 						<div class="progress">
-							<div class="progress-bar color-4" role="progressbar" aria-valuenow="65" aria-valuemin="0"
-								aria-valuemax="100" style="width:65%">
-								<span>65%</span>
+							<div class="progress-bar color-4" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+								<span>70%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>MySQL</h3>
+						<div class="progress">
+							<div class="progress-bar color-5" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+								<span>50%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>Java</h3>
+						<div class="progress">
+							<div class="progress-bar color-6" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+								<span>40%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="progress-wrap ftco-animate">
+						<h3>PHP</h3>
+						<div class="progress">
+							<div class="progress-bar color-1" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
+								<span>25%</span>
 							</div>
 						</div>
 					</div>
@@ -683,7 +763,7 @@
 	</section>
 
 
-	<section class="ftco-section ftco-project" id="projects-section">
+	<section class="ftco-section ftco-project animated-bg" id="projects-section">
 		<div class="container">
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-12 heading-section text-center ftco-animate">
@@ -745,7 +825,7 @@
 	</section>
 
 
-	<section class="ftco-section" id="blog-section">
+	<section class="ftco-section animated-bg" id="blog-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-5">
 				<div class="col-md-7 heading-section text-center ftco-animate">
@@ -760,8 +840,7 @@
 			<!-- Reflection 1 -->
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
-					<div
-						style="background:#1a1a2e; color:rgba(255,255,255,0.92); padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+					<div class="reflect-card">
 						<p
 							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
 							Group Work &amp; Collaboration</p>
@@ -795,8 +874,7 @@
 			<!-- Reflection 2 -->
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
-					<div
-						style="background:#1a1a2e; color:rgba(255,255,255,0.92); padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+					<div class="reflect-card">
 						<p
 							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
 							Practical &amp; Laboratory Work</p>
@@ -831,8 +909,7 @@
 			<!-- Reflection 3 -->
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
-					<div
-						style="background:#1a1a2e; color:rgba(255,255,255,0.92); padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+					<div class="reflect-card">
 						<p
 							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
 							Academic Communication</p>
@@ -1058,13 +1135,16 @@
 			let W, H, particles;
 
 			const CONFIG = {
-				count: 50,
-				speed: 1.5,
-				dotRadius: 2.5,
-				dotColor: 'rgba(255, 189, 57, 0.75)',
+				count: 80,
+				speed: 0.9,
+				dotRadius: 2.25,
+				dotColor: 'rgba(255, 189, 57, 0.95)',
 				lineColor: 'rgba(255, 189, 57, ',
-				lineDistance: 200
+				lineDistance: 160,
+				mouseRadius: 180
 			};
+
+			const mouse = { x: -9999, y: -9999, active: false };
 
 			function resize() {
 				W = canvas.width = canvas.offsetWidth;
@@ -1076,13 +1156,33 @@
 				this.y = Math.random() * H;
 				this.vx = (Math.random() - 0.5) * CONFIG.speed;
 				this.vy = (Math.random() - 0.5) * CONFIG.speed;
+				this.r = CONFIG.dotRadius * (0.8 + Math.random() * 0.8);
 			}
 
 			Particle.prototype.update = function () {
+				// simple bounds
 				this.x += this.vx;
 				this.y += this.vy;
-				if (this.x < 0 || this.x > W) this.vx *= -1;
-				if (this.y < 0 || this.y > H) this.vy *= -1;
+				if (this.x < -10) this.x = W + 10;
+				if (this.x > W + 10) this.x = -10;
+				if (this.y < -10) this.y = H + 10;
+				if (this.y > H + 10) this.y = -10;
+
+				// slight attraction/repel to mouse when active
+				if (mouse.active) {
+					const dx = this.x - mouse.x;
+					const dy = this.y - mouse.y;
+					const dist = Math.sqrt(dx * dx + dy * dy);
+					if (dist < CONFIG.mouseRadius && dist > 0) {
+						// move a bit away from mouse for a ripple effect
+						const pull = (CONFIG.mouseRadius - dist) / CONFIG.mouseRadius * 0.5;
+						this.vx += (dx / dist) * pull;
+						this.vy += (dy / dist) * pull;
+					}
+				}
+				// slow down velocities a bit for stability
+				this.vx *= 0.995;
+				this.vy *= 0.995;
 			};
 
 			function init() {
@@ -1093,32 +1193,64 @@
 			function draw() {
 				ctx.clearRect(0, 0, W, H);
 
+				// draw lines between particles
 				for (let i = 0; i < particles.length; i++) {
-					particles[i].update();
-					// draw dot
-					ctx.beginPath();
-					ctx.arc(particles[i].x, particles[i].y, CONFIG.dotRadius, 0, Math.PI * 2);
-					ctx.fillStyle = CONFIG.dotColor;
-					ctx.fill();
+					const p = particles[i];
+					p.update();
 
-					// draw lines to nearby particles
+					// draw dot with small glow
+					ctx.beginPath();
+					ctx.fillStyle = CONFIG.dotColor;
+					ctx.shadowColor = CONFIG.dotColor;
+					ctx.shadowBlur = 6;
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fill();
+					ctx.shadowBlur = 0;
+
 					for (let j = i + 1; j < particles.length; j++) {
-						const dx = particles[i].x - particles[j].x;
-						const dy = particles[i].y - particles[j].y;
+						const q = particles[j];
+						const dx = p.x - q.x;
+						const dy = p.y - q.y;
 						const dist = Math.sqrt(dx * dx + dy * dy);
 						if (dist < CONFIG.lineDistance) {
 							const alpha = 1 - dist / CONFIG.lineDistance;
 							ctx.beginPath();
-							ctx.moveTo(particles[i].x, particles[i].y);
-							ctx.lineTo(particles[j].x, particles[j].y);
-							ctx.strokeStyle = CONFIG.lineColor + (alpha * 0.4) + ')';
-							ctx.lineWidth = 0.8;
+							ctx.moveTo(p.x, p.y);
+							ctx.lineTo(q.x, q.y);
+							ctx.strokeStyle = CONFIG.lineColor + (alpha * 0.35) + ')';
+							ctx.lineWidth = 0.7 * alpha + 0.2;
+							ctx.stroke();
+						}
+					}
+
+					// draw line to mouse
+					if (mouse.active) {
+						const dxm = p.x - mouse.x;
+						const dym = p.y - mouse.y;
+						const distm = Math.sqrt(dxm * dxm + dym * dym);
+						if (distm < CONFIG.mouseRadius) {
+							const alphaM = 1 - distm / CONFIG.mouseRadius;
+							ctx.beginPath();
+							ctx.moveTo(p.x, p.y);
+							ctx.lineTo(mouse.x, mouse.y);
+							ctx.strokeStyle = CONFIG.lineColor + (alphaM * 0.45) + ')';
+							ctx.lineWidth = 0.8 * alphaM;
 							ctx.stroke();
 						}
 					}
 				}
+
 				requestAnimationFrame(draw);
 			}
+
+			// mouse events
+			canvas.addEventListener('mousemove', function (e) {
+				const rect = canvas.getBoundingClientRect();
+				mouse.x = e.clientX - rect.left;
+				mouse.y = e.clientY - rect.top;
+				mouse.active = true;
+			});
+			canvas.addEventListener('mouseleave', function () { mouse.active = false; });
 
 			window.addEventListener('resize', function () {
 				resize();
@@ -1127,6 +1259,88 @@
 
 			init();
 			draw();
+		})();
+
+		// Section particle backgrounds (reusable per-section canvas)
+		(function(){
+			function createParticles(canvas){
+				const ctx = canvas.getContext('2d');
+				let W, H, particles;
+
+				const CONFIG = {
+					speed: 0.8,
+					dotRadius: 2.0,
+					dotColor: 'rgba(255, 189, 57, 0.95)',
+					lineColor: 'rgba(255, 189, 57,',
+					lineDistance: 120,
+					mouseRadius: 120
+				};
+
+				const mouse = { x:-9999, y:-9999, active:false };
+
+				function resize(){ W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+
+				function Particle(){
+					this.x = Math.random() * W;
+					this.y = Math.random() * H;
+					this.vx = (Math.random() - 0.5) * CONFIG.speed;
+					this.vy = (Math.random() - 0.5) * CONFIG.speed;
+					this.r = CONFIG.dotRadius * (0.7 + Math.random() * 0.8);
+				}
+
+				Particle.prototype.update = function(){
+					this.x += this.vx; this.y += this.vy;
+					if (this.x < -10) this.x = W + 10;
+					if (this.x > W + 10) this.x = -10;
+					if (this.y < -10) this.y = H + 10;
+					if (this.y > H + 10) this.y = -10;
+
+					if (mouse.active){
+						const dx = this.x - mouse.x; const dy = this.y - mouse.y;
+						const dist = Math.sqrt(dx*dx + dy*dy);
+						if (dist < CONFIG.mouseRadius && dist > 0){
+							const pull = (CONFIG.mouseRadius - dist) / CONFIG.mouseRadius * 0.45;
+							this.vx += (dx / dist) * pull; this.vy += (dy / dist) * pull;
+						}
+					}
+					this.vx *= 0.995; this.vy *= 0.995;
+				};
+
+				function init(){
+					resize();
+					const area = Math.max(1, Math.floor((W*H) / 50000));
+					const count = Math.max(18, Math.min(80, area * 6));
+					particles = Array.from({ length: count }, () => new Particle());
+				}
+
+				function draw(){
+					ctx.clearRect(0,0,W,H);
+					for (let i=0;i<particles.length;i++){
+						const p = particles[i]; p.update();
+						ctx.beginPath(); ctx.fillStyle = CONFIG.dotColor; ctx.shadowColor = CONFIG.dotColor; ctx.shadowBlur = 6;
+						ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+						for (let j=i+1;j<particles.length;j++){
+							const q = particles[j]; const dx = p.x - q.x; const dy = p.y - q.y; const dist = Math.sqrt(dx*dx + dy*dy);
+							if (dist < CONFIG.lineDistance){ const alpha = 1 - dist/CONFIG.lineDistance; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.strokeStyle = CONFIG.lineColor + (alpha*0.28) + ')'; ctx.lineWidth = 0.6*alpha + 0.15; ctx.stroke(); }
+						}
+						if (mouse.active){ const dxm = p.x - mouse.x; const dym = p.y - mouse.y; const distm = Math.sqrt(dxm*dxm + dym*dym); if (distm < CONFIG.mouseRadius){ const alphaM = 1 - distm/CONFIG.mouseRadius; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(mouse.x,mouse.y); ctx.strokeStyle = CONFIG.lineColor + (alphaM*0.4) + ')'; ctx.lineWidth = 0.7*alphaM; ctx.stroke(); } }
+					}
+					requestAnimationFrame(draw);
+				}
+
+				canvas.addEventListener('mousemove', function(e){ const rect = canvas.getBoundingClientRect(); mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top; mouse.active = true; });
+				canvas.addEventListener('mouseleave', function(){ mouse.active = false; });
+				window.addEventListener('resize', function(){ resize(); init(); });
+				init(); draw();
+			}
+
+			// attach a canvas to each .animated-bg section
+			document.querySelectorAll('.animated-bg').forEach(function(sec){
+				// skip if already has canvas
+				if (sec.querySelector('.section-canvas')) return;
+				const c = document.createElement('canvas'); c.className = 'section-canvas'; sec.insertBefore(c, sec.firstChild);
+				createParticles(c);
+			});
 		})();
 	</script>
 
