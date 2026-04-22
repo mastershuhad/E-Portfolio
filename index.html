@@ -22,6 +22,32 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.stack-badges {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			justify-content: center;
+			margin-top: 12px;
+		}
+		.stack-badge {
+			display: inline-block;
+			padding: 5px 14px;
+			border-radius: 20px;
+			background: rgba(10, 20, 40, 0.75);
+			border: 1px solid rgba(80, 140, 255, 0.45);
+			color: #7db8f7;
+			font-size: 12px;
+			font-weight: 500;
+			letter-spacing: 0.3px;
+			backdrop-filter: blur(4px);
+			transition: border-color 0.2s, color 0.2s;
+		}
+		.stack-badge:hover {
+			border-color: rgba(80, 140, 255, 0.9);
+			color: #aed4ff;
+		}
+	</style>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -47,8 +73,9 @@
 			</div>
 		</div>
 	</nav>
-	<section id="home-section" class="hero">
-		<div class="home-slider  owl-carousel">
+	<section id="home-section" class="hero" style="position:relative; overflow:hidden;">
+		<canvas id="heroCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;"></canvas>
+		<div class="home-slider  owl-carousel" style="position:relative; z-index:1;">
 			<div class="slider-item ">
 				<div class="overlay"></div>
 				<div class="container">
@@ -61,9 +88,10 @@
 						<div class="one-forth d-flex  align-items-center ftco-animate"
 							data-scrollax=" properties: { translateY: '70%' }">
 							<div class="text">
-								<span class="subheading">Academic E-Portfolio</span>
-								<h1 class="mb-4 mt-3">Mohamed <span>Shuhad</span></h1>
-								<h2 class="mb-4">Undergraduate Student | Faculty of Computing and Technology<br>University of Kelaniya</h2>
+								<span class="subheading" style="color:#ffbd39; font-weight:700; font-size:13px; letter-spacing:3px; text-transform:uppercase;">Hello!</span>
+								<h1 class="mb-2 mt-2" style="font-size: clamp(52px, 8vw, 90px); font-weight:900; line-height:1.05; color:#fff;">I'm</h1>
+								<h1 class="mb-3" style="font-size: clamp(52px, 8vw, 90px); font-weight:900; line-height:1.05; color:#ffbd39;">Mohamed<br>Shuhad</h1>
+								<h2 class="mb-4" style="font-size:17px; font-weight:400; color:rgba(255,255,255,0.85); line-height:1.7;">Aspiring ICT Undergraduate | Web Developer<br>Problem Solver | Lifelong Learner</h2>
 								<p><a href="Mohamed_Shuhad_CV.pdf" class="btn btn-primary py-3 px-4" download>Download CV</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">View Projects</a></p>
 								<div class="mt-4 d-flex" style="gap: 12px;">
 									<a href="https://github.com/mastershuhad" target="_blank"
@@ -85,7 +113,7 @@
 				</div>
 			</div>
 
-			<!--  <div class="slider-item">
+			<div class="slider-item">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
@@ -94,14 +122,16 @@
 	          	</div>
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm a <span>web designer</span></h1>
-			            <p> <a href="#" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+
+			            <h1 class="mb-2 mt-2" style="font-size: clamp(36px, 5vw, 60px); font-weight:900; line-height:1.1; color:#fff;">BICT <span style="color:#ffbd39;">(Hons)</span></h1>
+			            <h2 class="mb-3" style="font-size: clamp(20px, 3vw, 32px); font-weight:700; color:#ffbd39; line-height:1.2;">Undergraduate</h2>
+			            <h3 class="mb-4" style="font-size:16px; font-weight:400; color:rgba(255,255,255,0.85); line-height:1.7;">Faculty of Computing and Technology<br>University of Kelaniya<br><span style="color:#ffbd39; font-weight:600;">Index No: CT/2022/016</span></h3>
+			            <p><a href="#about-section" class="btn btn-primary py-3 px-4">About Me</a> <a href="#resume-section" class="btn btn-white btn-outline-white py-3 px-4">View Resume</a></p>
 		            </div>
 		          </div>
 	        	</div>
 	        </div>
-	      </div> -->
+	      </div> 
 		</div>
 	</section>
 
@@ -109,7 +139,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-10 text-center ftco-animate">
-					<p class="lead" style="font-size: 16px; line-height: 1.9; color: #555;">My name is Mohamed Shuhad, and I am a second-year undergraduate student pursuing a Bachelor of Information and Communication Technology (Honours) at the Faculty of Computing and Technology, University of Kelaniya. I was raised in Badulla and developed a genuine interest in technology at an early age, particularly in the areas of web development and software engineering. Throughout my academic programme, I have engaged in meaningful projects and coursework that have strengthened my technical knowledge and practical competencies. I am committed to continuous learning and consistently endeavour to improve myself both academically and professionally. My aspiration is to apply the knowledge acquired during my studies to develop solutions that contribute positively to the field of Information and Communication Technology.</p>
+					<p class="lead" style="font-size: 16px; line-height: 1.9; color: #555;">My name is Mohamed Shuhad, and I'm a second-year undergraduate student pursuing a Bachelor of Information and Communication Technology (Honours) at the Faculty of Computing and Technology, University of Kelaniya. I grew up in Badulla and got interested in technology from my young age, mostly in web development and software engineering. During my studies, I've worked on different projects and assignments that have helped me build my technical skills and gain hands-on experience. I enjoy learning new things and always try to improve myself, both in my studies and in my personal growth. My goal is to use what I've learned to build useful solutions and make a positive impact in the field of ICT.</p>
 				</div>
 			</div>
 		</div>
@@ -138,6 +168,7 @@
 								<li class="d-flex"><span>Faculty:</span> <span>Faculty of Computing and
 										Technology</span></li>
 								<li class="d-flex"><span>Year:</span> <span>2nd Year Undergraduate</span></li>
+								<li class="d-flex"><span>Index No:</span> <span>CT/2022/016</span></li>
 								<li class="d-flex"><span>From:</span> <span>Badulla, Sri Lanka</span></li>
 								<li class="d-flex"><span>Email:</span> <span>mastershuhadh@gmail.com</span></li>
 							</ul>
@@ -427,6 +458,13 @@
 						<div class="text text-center p-4">
 							<h3><a href="#">Easy Assist</a></h3>
 							<span>Web Application</span>
+							<div class="stack-badges">
+								<span class="stack-badge">HTML</span>
+								<span class="stack-badge">CSS</span>
+								<span class="stack-badge">JavaScript</span>
+								<span class="stack-badge">PHP</span>
+								<span class="stack-badge">MySQL</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -437,6 +475,12 @@
 						<div class="text text-center p-4">
 							<h3><a href="#">Soldi</a></h3>
 							<span>Web Application</span>
+							<div class="stack-badges">
+								<span class="stack-badge">React</span>
+								<span class="stack-badge">Node.js</span>
+								<span class="stack-badge">MongoDB</span>
+								<span class="stack-badge">Postman</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -447,6 +491,12 @@
 						<div class="text text-center p-4">
 							<h3><a href="#">Line Following Robot</a></h3>
 							<span>Hardware / Electronics</span>
+							<div class="stack-badges">
+								<span class="stack-badge">Arduino</span>
+								<span class="stack-badge">C++</span>
+								<span class="stack-badge">IR Sensors</span>
+								<span class="stack-badge">Motor Driver</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -689,6 +739,86 @@
 	<script src="js/scrollax.min.js"></script>
 
 	<script src="js/main.js"></script>
+
+	<script>
+		// Animated particle network for hero section
+		(function() {
+			const canvas = document.getElementById('heroCanvas');
+			const ctx = canvas.getContext('2d');
+			let W, H, particles;
+
+			const CONFIG = {
+				count: 50,
+				speed: 1.5,
+				dotRadius: 2.5,
+				dotColor: 'rgba(255, 189, 57, 0.75)',
+				lineColor: 'rgba(255, 189, 57, ',
+				lineDistance: 200
+			};
+
+			function resize() {
+				W = canvas.width = canvas.offsetWidth;
+				H = canvas.height = canvas.offsetHeight;
+			}
+
+			function Particle() {
+				this.x = Math.random() * W;
+				this.y = Math.random() * H;
+				this.vx = (Math.random() - 0.5) * CONFIG.speed;
+				this.vy = (Math.random() - 0.5) * CONFIG.speed;
+			}
+
+			Particle.prototype.update = function() {
+				this.x += this.vx;
+				this.y += this.vy;
+				if (this.x < 0 || this.x > W) this.vx *= -1;
+				if (this.y < 0 || this.y > H) this.vy *= -1;
+			};
+
+			function init() {
+				resize();
+				particles = Array.from({ length: CONFIG.count }, () => new Particle());
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, W, H);
+
+				for (let i = 0; i < particles.length; i++) {
+					particles[i].update();
+					// draw dot
+					ctx.beginPath();
+					ctx.arc(particles[i].x, particles[i].y, CONFIG.dotRadius, 0, Math.PI * 2);
+					ctx.fillStyle = CONFIG.dotColor;
+					ctx.fill();
+
+					// draw lines to nearby particles
+					for (let j = i + 1; j < particles.length; j++) {
+						const dx = particles[i].x - particles[j].x;
+						const dy = particles[i].y - particles[j].y;
+						const dist = Math.sqrt(dx * dx + dy * dy);
+						if (dist < CONFIG.lineDistance) {
+							const alpha = 1 - dist / CONFIG.lineDistance;
+							ctx.beginPath();
+							ctx.moveTo(particles[i].x, particles[i].y);
+							ctx.lineTo(particles[j].x, particles[j].y);
+							ctx.strokeStyle = CONFIG.lineColor + (alpha * 0.4) + ')';
+							ctx.lineWidth = 0.8;
+							ctx.stroke();
+						}
+					}
+				}
+				requestAnimationFrame(draw);
+			}
+
+			window.addEventListener('resize', function() {
+				resize();
+				particles = Array.from({ length: CONFIG.count }, () => new Particle());
+			});
+
+			init();
+			draw();
+		})();
+	</script>
 
 </body>
 
