@@ -3,6 +3,7 @@
 
 <head>
 	<title>Shuhad's Portfolio</title>
+	<link rel="icon" type="image/png" href="images/Icon.jpg">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,6 +31,7 @@
 			justify-content: center;
 			margin-top: 12px;
 		}
+
 		.stack-badge {
 			display: inline-block;
 			padding: 5px 14px;
@@ -43,9 +45,209 @@
 			backdrop-filter: blur(4px);
 			transition: border-color 0.2s, color 0.2s;
 		}
+
 		.stack-badge:hover {
 			border-color: rgba(80, 140, 255, 0.9);
 			color: #aed4ff;
+		}
+		.project-desc {
+			font-size: 12px;
+			color: rgba(255,255,255,0.82);
+			line-height: 1.6;
+			margin-top: 10px;
+			margin-bottom: 0;
+			text-align: center;
+		}
+		.project-card-wrap {
+			border-radius: 10px;
+			overflow: hidden;
+			background: #1e1e2f;
+			box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+			margin-bottom: 30px;
+			transition: transform 0.3s, box-shadow 0.3s;
+		}
+		.project-card-wrap:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 14px 36px rgba(255,189,57,0.15);
+		}
+		.project-card-img {
+			height: 300px;
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+		}
+		.project-card-body {
+			padding: 20px 18px 22px;
+		}
+		.project-card-body h3 {
+			color: #fff;
+			font-size: 17px;
+			font-weight: 700;
+			margin-bottom: 4px;
+		}
+		.project-card-body h3 a {
+			color: #fff;
+			text-decoration: none;
+		}
+		.project-card-body .proj-type {
+			color: #ffbd39;
+			font-size: 11px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			display: block;
+			margin-bottom: 10px;
+		}
+		.project-card-body .proj-desc {
+			color: rgba(255,255,255,0.7);
+			font-size: 13px;
+			line-height: 1.65;
+			margin-bottom: 14px;
+		}
+
+		/* Dark full-width section style */
+		.dark-section {
+			background: #0f1114;
+			color: rgba(255,255,255,0.92);
+		}
+		.dark-section .lead { color: rgba(255,255,255,0.78) !important; }
+		.dark-section .heading-section h2, .dark-section .heading-section h1 { color: rgba(255,255,255,0.95) !important; }
+
+		/* Dark contact form styles (updated to match provided design) */
+		.dark-contact {
+			background: #1d2328 !important;
+			color: rgba(255,255,255,0.95) !important;
+			padding: 36px !important;
+			border-radius: 6px !important;
+		}
+		.dark-contact .form-control {
+			background: #23272b !important;
+			border: 1px solid rgba(255,255,255,0.04) !important;
+			color: rgba(255,255,255,0.9) !important;
+			box-shadow: none !important;
+			border-radius: 6px !important;
+			padding: 14px 16px !important;
+			height: 48px !important;
+		}
+		.dark-contact textarea.form-control { min-height: 200px !important; height: auto !important; padding-top:12px; padding-bottom:12px; }
+		.dark-contact .form-control:focus {
+			border-color: rgba(255,189,57,0.9) !important;
+			box-shadow: 0 6px 18px rgba(0,0,0,0.45) inset, 0 6px 24px rgba(0,0,0,0.35) !important;
+		}
+		.dark-contact .form-control::placeholder { color: rgba(255,255,255,0.45) !important; }
+		.dark-contact label,
+		.dark-contact h3,
+		.dark-contact p,
+		.dark-contact .form-group,
+		.dark-contact .form-text { color: rgba(255,255,255,0.92) !important; }
+		.dark-contact .btn {
+			background:#f2b21a !important;
+			color:#111 !important;
+			border:none !important;
+			padding:14px 36px !important;
+			border-radius:30px !important;
+			font-weight:700 !important;
+			letter-spacing:2px !important;
+			box-shadow: 0 12px 30px rgba(0,0,0,0.45) !important;
+		}
+		/* ensure inputs actually render dark on all browsers */
+		.dark-contact input.form-control,
+		.dark-contact textarea.form-control {
+			background-clip: padding-box !important;
+			background-color: #23272b !important;
+			color: rgba(255,255,255,0.92) !important;
+		}
+
+		/* CV Viewer Modal */
+		#cvModal {
+			display: none;
+			position: fixed;
+			inset: 0;
+			z-index: 9999;
+			background: rgba(0,0,0,0.85);
+			backdrop-filter: blur(6px);
+			align-items: center;
+			justify-content: center;
+		}
+		#cvModal.open {
+			display: flex;
+		}
+		.cv-modal-box {
+			background: #1a1a2e;
+			border-radius: 12px;
+			width: 92vw;
+			max-width: 900px;
+			height: 90vh;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+			border: 1px solid rgba(255,189,57,0.25);
+		}
+		.cv-modal-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 16px 24px;
+			border-bottom: 1px solid rgba(255,189,57,0.2);
+			background: rgba(255,189,57,0.06);
+		}
+		.cv-modal-header h5 {
+			color: #ffbd39;
+			font-weight: 700;
+			font-size: 15px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			margin: 0;
+		}
+		.cv-modal-header-btns {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+		}
+		.cv-download-btn {
+			background: #ffbd39;
+			color: #1a1a2e;
+			border: none;
+			padding: 8px 20px;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 13px;
+			cursor: pointer;
+			transition: background 0.2s;
+			text-decoration: none;
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+		}
+		.cv-download-btn:hover {
+			background: #e6a800;
+			color: #1a1a2e;
+			text-decoration: none;
+		}
+		.cv-close-btn {
+			background: rgba(255,255,255,0.08);
+			color: #fff;
+			border: none;
+			width: 34px;
+			height: 34px;
+			border-radius: 6px;
+			font-size: 18px;
+			cursor: pointer;
+			transition: background 0.2s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.cv-close-btn:hover { background: rgba(255,255,255,0.18); }
+		.cv-modal-body {
+			flex: 1;
+			overflow: hidden;
+		}
+		.cv-modal-body iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
 		}
 	</style>
 </head>
@@ -74,7 +276,8 @@
 		</div>
 	</nav>
 	<section id="home-section" class="hero" style="position:relative; overflow:hidden;">
-		<canvas id="heroCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;"></canvas>
+		<canvas id="heroCanvas"
+			style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;"></canvas>
 		<div class="home-slider  owl-carousel" style="position:relative; z-index:1;">
 			<div class="slider-item ">
 				<div class="overlay"></div>
@@ -88,11 +291,18 @@
 						<div class="one-forth d-flex  align-items-center ftco-animate"
 							data-scrollax=" properties: { translateY: '70%' }">
 							<div class="text">
-								<span class="subheading" style="color:#ffbd39; font-weight:700; font-size:13px; letter-spacing:3px; text-transform:uppercase;">Hello!</span>
-								<h1 class="mb-2 mt-2" style="font-size: clamp(52px, 8vw, 90px); font-weight:900; line-height:1.05; color:#fff;">I'm</h1>
-								<h1 class="mb-3" style="font-size: clamp(52px, 8vw, 90px); font-weight:900; line-height:1.05; color:#ffbd39;">Mohamed<br>Shuhad</h1>
-								<h2 class="mb-4" style="font-size:17px; font-weight:400; color:rgba(255,255,255,0.85); line-height:1.7;">Aspiring ICT Undergraduate | Web Developer<br>Problem Solver | Lifelong Learner</h2>
-								<p><a href="Mohamed_Shuhad_CV.pdf" class="btn btn-primary py-3 px-4" download>Download CV</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">View Projects</a></p>
+								<span class="subheading"
+									style="color:#ffbd39; font-weight:700; font-size:13px; letter-spacing:3px; text-transform:uppercase;">Hello!</span>
+								<h1 class="mb-2 mt-2"
+									style="font-size: clamp(52px, 8vw, 90px); font-weight:900; line-height:1.05; color:#fff;">
+									I'm</h1>
+								<h1 class="mb-3"
+									style="font-size: clamp(52px, 8vw, 90px); font-weight:900; line-height:1.05; color:#ffbd39;">
+									Mohamed<br>Shuhad</h1>
+								<h2 class="mb-4"
+									style="font-size:17px; font-weight:400; color:rgba(255,255,255,0.85); line-height:1.7;">
+									Aspiring ICT Undergraduate | Web Developer<br>Problem Solver | Lifelong Learner</h2>
+								<p><button onclick="openCVModal()" class="btn btn-primary py-3 px-4">View CV</button> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">View Projects</a></p>
 								<div class="mt-4 d-flex" style="gap: 12px;">
 									<a href="https://github.com/mastershuhad" target="_blank"
 										style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; background:rgba(255,255,255,0.08); border-radius:8px; color:#fff; font-size:20px;"><span
@@ -114,32 +324,52 @@
 			</div>
 
 			<div class="slider-item">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_2.png);">
-	          		<div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
+				<div class="overlay"></div>
+				<div class="container">
+					<div class="row d-flex no-gutters slider-text align-items-end justify-content-end"
+						data-scrollax-parent="true">
+						<div class="one-third js-fullheight order-md-last img"
+							style="background-image:url(images/bg_2.png);">
+							<div class="overlay"></div>
+						</div>
+						<div class="one-forth d-flex align-items-center ftco-animate"
+							data-scrollax=" properties: { translateY: '70%' }">
+							<div class="text">
 
-			            <h1 class="mb-2 mt-2" style="font-size: clamp(36px, 5vw, 60px); font-weight:900; line-height:1.1; color:#fff;">BICT <span style="color:#ffbd39;">(Hons)</span></h1>
-			            <h2 class="mb-3" style="font-size: clamp(20px, 3vw, 32px); font-weight:700; color:#ffbd39; line-height:1.2;">Undergraduate</h2>
-			            <h3 class="mb-4" style="font-size:16px; font-weight:400; color:rgba(255,255,255,0.85); line-height:1.7;">Faculty of Computing and Technology<br>University of Kelaniya<br><span style="color:#ffbd39; font-weight:600;">Index No: CT/2022/016</span></h3>
-			            <p><a href="#about-section" class="btn btn-primary py-3 px-4">About Me</a> <a href="#resume-section" class="btn btn-white btn-outline-white py-3 px-4">View Resume</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div> 
+								<h1 class="mb-2 mt-2"
+									style="font-size: clamp(36px, 5vw, 60px); font-weight:900; line-height:1.1; color:#fff;">
+									BICT <span style="color:#ffbd39;">(Hons)</span></h1>
+								<h2 class="mb-3"
+									style="font-size: clamp(20px, 3vw, 32px); font-weight:700; color:#ffbd39; line-height:1.2;">
+									Undergraduate</h2>
+								<h3 class="mb-4"
+									style="font-size:16px; font-weight:400; color:rgba(255,255,255,0.85); line-height:1.7;">
+									Faculty of Computing and Technology<br>University of Kelaniya<br><span
+										style="color:#ffbd39; font-weight:600;">Index No: CT/2022/016</span></h3>
+								<p><a href="#about-section" class="btn btn-primary py-3 px-4">About Me</a> <a
+										href="#resume-section" class="btn btn-white btn-outline-white py-3 px-4">View
+										Resume</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<section class="ftco-section bg-light py-5" id="bio-section">
+	<section class="ftco-section dark-section py-5" id="bio-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-10 text-center ftco-animate">
-					<p class="lead" style="font-size: 16px; line-height: 1.9; color: #555;">My name is Mohamed Shuhad, and I'm a second-year undergraduate student pursuing a Bachelor of Information and Communication Technology (Honours) at the Faculty of Computing and Technology, University of Kelaniya. I grew up in Badulla and got interested in technology from my young age, mostly in web development and software engineering. During my studies, I've worked on different projects and assignments that have helped me build my technical skills and gain hands-on experience. I enjoy learning new things and always try to improve myself, both in my studies and in my personal growth. My goal is to use what I've learned to build useful solutions and make a positive impact in the field of ICT.</p>
+						<p class="lead" style="font-size: 16px; line-height: 1.9; color: rgba(255,255,255,0.78);">My name is Mohamed Shuhad,
+							and I'm a second-year undergraduate student pursuing a Bachelor of Information and Communication
+							Technology (Honours) at the Faculty of Computing and Technology, University of Kelaniya. I grew
+							up in Badulla and got interested in technology from my young age, mostly in web development and
+							software engineering. During my studies, I've worked on different projects and assignments that
+							have helped me build my technical skills and gain hands-on experience. I enjoy learning new
+							things and always try to improve myself, both in my studies and in my personal growth. My goal
+							is to use what I've learned to build useful solutions and make a positive impact in the field of
+							ICT.</p>
 				</div>
 			</div>
 		</div>
@@ -180,7 +410,7 @@
 								<span class="number" data-number="3">0</span>
 								<span>Projects Completed</span>
 							</p>
-							<p><a href="Mohamed_Shuhad_CV.pdf" class="btn btn-primary py-3 px-3" download>Download CV</a></p>
+							<p><button onclick="openCVModal()" class="btn btn-primary py-3 px-3">View CV</button></p>
 						</div>
 					</div>
 				</div>
@@ -227,7 +457,13 @@
 			<div class="row mb-5 ftco-animate">
 				<div class="col-md-12">
 					<h4 class="mb-3" style="color:#ffbd39;">Career Goals</h4>
-					<p>My primary career goal is to become a professional Software Engineer upon completing my undergraduate studies. I am particularly interested in pursuing opportunities in web and application development, where I can apply my technical competencies to develop accessible and well-engineered digital solutions. I aim to work within an environment that fosters innovation, continuous improvement, and professional growth. In the long term, I intend to contribute to meaningful software development projects that address practical challenges and create a positive impact within the field of ICT.</p>
+					<p>My primary career goal is to become a professional Software Engineer upon completing my
+						undergraduate studies. I am particularly interested in pursuing opportunities in web and
+						application development, where I can apply my technical competencies to develop accessible and
+						well-engineered digital solutions. I aim to work within an environment that encourages
+						innovation, continuous improvement, and professional growth. In the long term, I intend to
+						contribute to meaningful software development projects that address practical challenges and
+						create a positive impact within the field of ICT.</p>
 				</div>
 			</div>
 
@@ -235,10 +471,14 @@
 				<div class="col-md-12">
 					<h4 class="mb-3" style="color:#ffbd39;">Personal Values</h4>
 					<ul>
-						<li><strong>Integrity</strong> — I uphold honesty and transparency in all academic and professional endeavours</li>
-						<li><strong>Continuous Learning</strong> — I consistently seek opportunities to expand my knowledge and technical competencies</li>
-						<li><strong>Dedication</strong> — I apply full commitment and effort to every academic task and project I undertake</li>
-						<li><strong>Collaboration</strong> — I value cooperative working relationships and recognise the importance of learning from diverse perspectives</li>
+						<li><strong>Integrity</strong> — I uphold honesty and transparency in all academic and
+							professional endeavours</li>
+						<li><strong>Continuous Learning</strong> — I consistently seek opportunities to expand my
+							knowledge and technical competencies</li>
+						<li><strong>Dedication</strong> — I apply full commitment and effort to every academic task and
+							project I undertake</li>
+						<li><strong>Collaboration</strong> — I value cooperative working relationships and recognise the
+							importance of learning from diverse perspectives</li>
 					</ul>
 				</div>
 			</div>
@@ -251,8 +491,9 @@
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-10 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Resume</h1>
-					<h2 class="mb-4">Academic Background</h2>
-					<p>An overview of my academic qualifications and the technical skills I have developed throughout my undergraduate studies.</p>
+					<h2 class="mb-4">Resume</h2>
+					<p>An overview of my academic qualifications and the technical skills I have developed throughout my
+						undergraduate studies.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -308,7 +549,7 @@
 			</div>
 			<div class="row justify-content-center mt-5">
 				<div class="col-md-6 text-center ftco-animate">
-					<p><a href="Mohamed_Shuhad_CV.pdf" class="btn btn-primary py-4 px-5" download>Download CV</a></p>
+					<p><button onclick="openCVModal()" class="btn btn-primary py-4 px-5">View CV</button></p>
 				</div>
 			</div>
 		</div>
@@ -322,7 +563,8 @@
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Skills</h1>
 					<h2 class="mb-4">Technical Skills</h2>
-					<p>The following section presents the programming languages, tools, and technologies I have acquired and applied throughout my academic studies at the University of Kelaniya.</p>
+					<p>The following section presents the programming languages, tools, and technologies I have acquired
+						and applied throughout my academic studies at the University of Kelaniya.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -447,55 +689,53 @@
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Projects</h1>
 					<h2 class="mb-4">Academic Projects</h2>
-					<p>The following are academic projects undertaken during my undergraduate studies at the University of Kelaniya, spanning web application development and hardware engineering.</p>
+					<p>The following are academic projects undertaken during my undergraduate studies at the University
+						of Kelaniya, spanning web application development and hardware engineering.</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-						style="background-image: url(images/project-1.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
+					<div class="project-card-wrap ftco-animate">
+						<div class="project-card-img" style="background-image: url(images/project-1.jpg);"></div>
+						<div class="project-card-body">
 							<h3><a href="#">Easy Assist</a></h3>
-							<span>Web Application</span>
-							<div class="stack-badges">
+							<span class="proj-type">Website Recommendation Platform</span>
+							<p class="proj-desc">A web platform to help users discover reliable websites across various product categories, featuring search, categorized listings, and an admin dashboard with user approval system.</p>
+							<div class="stack-badges" style="justify-content:flex-start;">
 								<span class="stack-badge">HTML</span>
 								<span class="stack-badge">CSS</span>
 								<span class="stack-badge">JavaScript</span>
-								<span class="stack-badge">PHP</span>
-								<span class="stack-badge">MySQL</span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-						style="background-image: url(images/project-2.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
+					<div class="project-card-wrap ftco-animate">
+						<div class="project-card-img" style="background-image: url(images/project-2.jpg);"></div>
+						<div class="project-card-body">
 							<h3><a href="#">Soldi</a></h3>
-							<span>Web Application</span>
-							<div class="stack-badges">
-								<span class="stack-badge">React</span>
-								<span class="stack-badge">Node.js</span>
-								<span class="stack-badge">MongoDB</span>
-								<span class="stack-badge">Postman</span>
+							<span class="proj-type">Investment-Based Installment Platform</span>
+							<p class="proj-desc">A web platform connecting investors with customers seeking financial support for purchasing goods, with funding requests, investor contributions, and structured installment repayments with profit-sharing.</p>
+							<div class="stack-badges" style="justify-content:flex-start;">
+								<span class="stack-badge">HTML</span>
+								<span class="stack-badge">CSS</span>
+								<span class="stack-badge">JavaScript</span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="project img ftco-animate d-flex justify-content-center align-items-center"
-						style="background-image: url(images/project-3.jpg);">
-						<div class="overlay"></div>
-						<div class="text text-center p-4">
+					<div class="project-card-wrap ftco-animate">
+						<div class="project-card-img" style="background-image: url(images/project-3.jpg);"></div>
+						<div class="project-card-body">
 							<h3><a href="#">Line Following Robot</a></h3>
-							<span>Hardware / Electronics</span>
-							<div class="stack-badges">
-								<span class="stack-badge">Arduino</span>
-								<span class="stack-badge">C++</span>
-								<span class="stack-badge">IR Sensors</span>
-								<span class="stack-badge">Motor Driver</span>
+							<span class="proj-type">Hardware / Circuit Design</span>
+							<p class="proj-desc">Built a compact line-following robot using transistors, resistors, and logic ICs — no programming. Hardware-based control logic for real-time path tracking, demonstrating analog and digital electronics.</p>
+							<div class="stack-badges" style="justify-content:flex-start;">
+								<span class="stack-badge">Transistors</span>
+								<span class="stack-badge">Resistors</span>
+								<span class="stack-badge">Logic ICs</span>
+								<span class="stack-badge">Circuit Design</span>
 							</div>
 						</div>
 					</div>
@@ -511,21 +751,43 @@
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Reflect</h1>
 					<h2 class="mb-4">Reflections</h2>
-					<p>The following reflections document key learning experiences from my undergraduate studies, structured to capture the experience, key learning outcomes, challenges encountered, solutions applied, and areas identified for future improvement.</p>
+					<p>The following reflections document key learning experiences from my undergraduate studies,
+						structured to capture the experience, key learning outcomes, challenges encountered, solutions
+						applied, and areas identified for future improvement.</p>
 				</div>
 			</div>
 
 			<!-- Reflection 1 -->
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
-					<div style="background:#fff; padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
-						<p style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">Group Work &amp; Collaboration</p>
+					<div
+						style="background:#1a1a2e; color:rgba(255,255,255,0.92); padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+						<p
+							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
+							Group Work &amp; Collaboration</p>
 						<h3 style="margin-bottom:20px;">Reflection 1: Group Project Experience</h3>
-						<p><strong>Experience:</strong> During my undergraduate studies, I participated in a collaborative web development project in which our team was required to design and develop a functional application. This experience provided valuable insight into how group-based academic projects operate within a computing context and highlighted the importance of structured teamwork.</p>
-						<p><strong>Learning:</strong> Through this experience, I developed a deeper understanding of the significance of clear communication and shared responsibility within a team setting. I observed how each member's individual strengths could be effectively leveraged to produce a more complete and well-rounded academic outcome. Additionally, I gained practical experience in applying technical knowledge acquired through lectures to a real development task.</p>
-						<p><strong>Challenges:</strong> A significant challenge encountered was coordinating tasks effectively, as team members operated under varying schedules and adopted different approaches to the assigned work. This occasionally resulted in delays in completing certain components and required additional coordination to maintain overall project progress.</p>
-						<p><strong>Solutions:</strong> To address these coordination difficulties, the team established a shared timeline with clearly defined roles and submission deadlines for each member. Regular check-in meetings were also arranged to monitor progress, facilitate discussion, and ensure that all members remained accountable for their respective contributions.</p>
-						<p><strong>Future Improvements:</strong> In future group projects, I intend to take a more proactive role in facilitating team discussions and to advocate for establishing clear communication structures and task-management systems from the outset. This will contribute to a more efficient and collaborative working process.</p>
+						<p><strong>Experience:</strong> During my undergraduate studies, I participated in a
+							collaborative web development project in which our team was required to design and develop a
+							functional application. This experience provided valuable insight into how group-based
+							academic projects operate within a computing context and highlighted the importance of
+							structured teamwork.</p>
+						<p><strong>Learning:</strong> Through this experience, I developed a deeper understanding of the
+							significance of clear communication and shared responsibility within a team setting. I
+							observed how each member's individual strengths could be effectively leveraged to produce a
+							more complete and well-rounded academic outcome. Additionally, I gained practical experience
+							in applying technical knowledge acquired through lectures to a real development task.</p>
+						<p><strong>Challenges:</strong> A significant challenge encountered was coordinating tasks
+							effectively, as team members operated under varying schedules and adopted different
+							approaches to the assigned work. This occasionally resulted in delays in completing certain
+							components and required additional coordination to maintain overall project progress.</p>
+						<p><strong>Solutions:</strong> To address these coordination difficulties, the team established
+							a shared timeline with clearly defined roles and submission deadlines for each member.
+							Regular check-in meetings were also arranged to monitor progress, facilitate discussion, and
+							ensure that all members remained accountable for their respective contributions.</p>
+						<p><strong>Future Improvements:</strong> In future group projects, I intend to take a more
+							proactive role in facilitating team discussions and to advocate for establishing clear
+							communication structures and task-management systems from the outset. This will contribute
+							to a more efficient and collaborative working process.</p>
 					</div>
 				</div>
 			</div>
@@ -533,14 +795,35 @@
 			<!-- Reflection 2 -->
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
-					<div style="background:#fff; padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
-						<p style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">Practical &amp; Laboratory Work</p>
+					<div
+						style="background:#1a1a2e; color:rgba(255,255,255,0.92); padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+						<p
+							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
+							Practical &amp; Laboratory Work</p>
 						<h3 style="margin-bottom:20px;">Reflection 2: Laboratory Sessions and Practical Work</h3>
-						<p><strong>Experience:</strong> Laboratory sessions have formed an integral component of my academic programme, providing structured opportunities to engage in hands-on activities related to programming, circuit design, and system analysis. These sessions complemented the theoretical content delivered through lectures and enabled practical engagement with core technical concepts.</p>
-						<p><strong>Learning:</strong> Through these activities, I developed a more comprehensive understanding of how to apply theoretical knowledge to practical situations, troubleshoot technical errors systematically, and follow established procedures with precision. I also gained an appreciation for the importance of methodical working practices and technical accuracy in an engineering and computing context.</p>
-						<p><strong>Challenges:</strong> A recurring challenge experienced during laboratory sessions was encountering unexpected errors or obtaining incorrect outputs, which initially required considerable time to diagnose and resolve. This was at times frustrating, particularly when it necessitated repeating sections of the experiment.</p>
-						<p><strong>Solutions:</strong> To address these difficulties, I adopted the practice of thoroughly reviewing laboratory manuals and related materials prior to each session. I also made greater use of available support by consulting with lecturers and fellow students when faced with technical difficulties, which improved my ability to identify and resolve issues efficiently.</p>
-						<p><strong>Future Improvements:</strong> I aim to enhance my preparation before each laboratory session and to further develop my problem-solving capabilities so that I can address technical challenges with greater confidence and efficiency. I also intend to improve my ability to document and analyse experimental results more rigorously.</p>
+						<p><strong>Experience:</strong> Laboratory sessions have formed an integral component of my
+							academic programme, providing structured opportunities to engage in hands-on activities
+							related to programming, circuit design, and system analysis. These sessions complemented the
+							theoretical content delivered through lectures and enabled practical engagement with core
+							technical concepts.</p>
+						<p><strong>Learning:</strong> Through these activities, I developed a more comprehensive
+							understanding of how to apply theoretical knowledge to practical situations, troubleshoot
+							technical errors systematically, and follow established procedures with precision. I also
+							gained an appreciation for the importance of methodical working practices and technical
+							accuracy in an engineering and computing context.</p>
+						<p><strong>Challenges:</strong> A recurring challenge experienced during laboratory sessions was
+							encountering unexpected errors or obtaining incorrect outputs, which initially required
+							considerable time to diagnose and resolve. This was at times frustrating, particularly when
+							it necessitated repeating sections of the experiment.</p>
+						<p><strong>Solutions:</strong> To address these difficulties, I adopted the practice of
+							thoroughly reviewing laboratory manuals and related materials prior to each session. I also
+							made greater use of available support by consulting with lecturers and fellow students when
+							faced with technical difficulties, which improved my ability to identify and resolve issues
+							efficiently.</p>
+						<p><strong>Future Improvements:</strong> I aim to enhance my preparation before each laboratory
+							session and to further develop my problem-solving capabilities so that I can address
+							technical challenges with greater confidence and efficiency. I also intend to improve my
+							ability to document and analyse experimental results more rigorously.</p>
 					</div>
 				</div>
 			</div>
@@ -548,14 +831,35 @@
 			<!-- Reflection 3 -->
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
-					<div style="background:#fff; padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
-						<p style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">Academic Communication</p>
-						<h3 style="margin-bottom:20px;">Reflection 3: Communication and Presentation Skills (DELT Module)</h3>
-						<p><strong>Experience:</strong> The DELT module provided structured opportunities throughout the academic year to develop communication and presentation competencies through formal presentations, impromptu speaking tasks, and group discussions. These activities formed a significant component of the module and required consistent engagement and preparation.</p>
-						<p><strong>Learning:</strong> Through regular participation in these activities, I developed the ability to organise ideas in a logical and coherent manner, apply appropriate academic language, and present information clearly to an audience. I also improved my capacity to respond spontaneously during impromptu speaking tasks, which required the ability to think critically and communicate effectively under time constraints.</p>
-						<p><strong>Challenges:</strong> I initially experienced a degree of nervousness during formal presentations and, in particular, during impromptu speaking activities that required immediate and unscripted responses. This occasionally affected my fluency and the overall clarity of my delivery.</p>
-						<p><strong>Solutions:</strong> To address this, I engaged in regular speaking practice, prepared structured key points prior to formal presentations, and actively participated in all available classroom speaking opportunities to gradually build confidence and reduce anxiety. The constructive feedback provided by the module lecturer was also highly beneficial in identifying specific areas for improvement.</p>
-						<p><strong>Future Improvements:</strong> I intend to continue developing my public speaking skills, with a particular focus on delivering more fluent and well-structured presentations. I also aim to improve my ability to respond with greater clarity during spontaneous speaking tasks and to make more effective use of visual aids to communicate complex ideas.</p>
+					<div
+						style="background:#1a1a2e; color:rgba(255,255,255,0.92); padding: 35px 40px; border-radius:8px; border-left: 5px solid #ffbd39; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+						<p
+							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
+							Academic Communication</p>
+						<h3 style="margin-bottom:20px;">Reflection 3: Communication and Presentation Skills (DELT
+							Module)</h3>
+						<p><strong>Experience:</strong> The DELT module provided structured opportunities throughout the
+							academic year to develop communication and presentation competencies through formal
+							presentations, impromptu speaking tasks, and group discussions. These activities formed a
+							significant component of the module and required consistent engagement and preparation.</p>
+						<p><strong>Learning:</strong> Through regular participation in these activities, I developed the
+							ability to organise ideas in a logical and coherent manner, apply appropriate academic
+							language, and present information clearly to an audience. I also improved my capacity to
+							respond spontaneously during impromptu speaking tasks, which required the ability to think
+							critically and communicate effectively under time constraints.</p>
+						<p><strong>Challenges:</strong> I initially experienced a degree of nervousness during formal
+							presentations and, in particular, during impromptu speaking activities that required
+							immediate and unscripted responses. This occasionally affected my fluency and the overall
+							clarity of my delivery.</p>
+						<p><strong>Solutions:</strong> To address this, I engaged in regular speaking practice, prepared
+							structured key points prior to formal presentations, and actively participated in all
+							available classroom speaking opportunities to gradually build confidence and reduce anxiety.
+							The constructive feedback provided by the module lecturer was also highly beneficial in
+							identifying specific areas for improvement.</p>
+						<p><strong>Future Improvements:</strong> I intend to continue developing my public speaking
+							skills, with a particular focus on delivering more fluent and well-structured presentations.
+							I also aim to improve my ability to respond with greater clarity during spontaneous speaking
+							tasks and to make more effective use of visual aids to communicate complex ideas.</p>
 					</div>
 				</div>
 			</div>
@@ -568,7 +872,8 @@
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Contact</h1>
 					<h2 class="mb-4">Contact Information</h2>
-					<p>I welcome academic and professional enquiries. Please feel free to contact me through the details provided below.</p>
+					<p>I welcome academic and professional enquiries. Please feel free to contact me through the details
+						provided below.</p>
 				</div>
 			</div>
 
@@ -606,29 +911,31 @@
 							<span class="icon-globe"></span>
 						</div>
 						<h3 class="mb-4">LinkedIn</h3>
-						<p><a href="https://www.linkedin.com/in/mohamed-shuhad-564431274/" target="_blank">linkedin.com/in/mohamed-shuhad</a></p>
+						<p><a href="https://www.linkedin.com/in/mohamed-shuhad-564431274/"
+								target="_blank">linkedin.com/in/mohamed-shuhad</a></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="row no-gutters block-9">
 				<div class="col-md-6 order-md-last d-flex">
-					<form action="#" class="bg-light p-4 p-md-5 contact-form">
+					<form id="contact-form" class="contact-form dark-contact p-4 p-md-5">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Name">
+							<input type="text" name="title" class="form-control" placeholder="Subject" required>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Email">
+							<input type="text" name="name" class="form-control" placeholder="Your Name" required>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Subject">
+							<input type="email" name="email" class="form-control" placeholder="Your Email" required>
 						</div>
 						<div class="form-group">
-							<textarea name="" id="" cols="30" rows="7" class="form-control"
-								placeholder="Message"></textarea>
+							<textarea name="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
 						</div>
+						<input type="hidden" name="from_name" value="Mohamed Shuhad">
+						<input type="hidden" name="time" id="contact-time">
 						<div class="form-group">
-							<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+							<input type="submit" id="contact-submit" value="Send Message" class="btn btn-primary py-3 px-5">
 						</div>
 					</form>
 
@@ -650,9 +957,12 @@
 						<h2 class="ftco-heading-2">Mohamed Shuhad</h2>
 						<p>Aspiring ICT Undergraduate | Web Developer | Problem Solver | Lifelong Learner</p>
 						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-							<li class="ftco-animate"><a href="https://github.com/mastershuhad" target="_blank"><span class="icon-github"></span></a></li>
-							<li class="ftco-animate"><a href="https://www.linkedin.com/in/mohamed-shuhad-564431274/" target="_blank"><span class="icon-linkedin"></span></a></li>
-							<li class="ftco-animate"><a href="https://www.instagram.com/mohamedshuhad_/" target="_blank"><span class="icon-instagram"></span></a></li>
+							<li class="ftco-animate"><a href="https://github.com/mastershuhad" target="_blank"><span
+										class="icon-github"></span></a></li>
+							<li class="ftco-animate"><a href="https://www.linkedin.com/in/mohamed-shuhad-564431274/"
+									target="_blank"><span class="icon-linkedin"></span></a></li>
+							<li class="ftco-animate"><a href="https://www.instagram.com/mohamedshuhad_/"
+									target="_blank"><span class="icon-instagram"></span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -694,7 +1004,9 @@
 								<li><a href="mailto:mastershuhadh@gmail.com"><span
 											class="icon icon-envelope"></span><span
 											class="text">mastershuhadh@gmail.com</span></a></li>
-								<li><a href="https://github.com/mastershuhad" target="_blank"><span class="icon icon-globe"></span><span class="text">github.com/mastershuhad</span></a></li>
+								<li><a href="https://github.com/mastershuhad" target="_blank"><span
+											class="icon icon-globe"></span><span
+											class="text">github.com/mastershuhad</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -705,9 +1017,7 @@
 
 					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;
-						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-						is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
+						<script>document.write(new Date().getFullYear());</script> All rights reserved 
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</p>
 				</div>
@@ -741,8 +1051,8 @@
 	<script src="js/main.js"></script>
 
 	<script>
-		// Animated particle network for hero section
-		(function() {
+			emailjs.init('u5tLyqUY86VpNyYQf');
+		(function () {
 			const canvas = document.getElementById('heroCanvas');
 			const ctx = canvas.getContext('2d');
 			let W, H, particles;
@@ -768,7 +1078,7 @@
 				this.vy = (Math.random() - 0.5) * CONFIG.speed;
 			}
 
-			Particle.prototype.update = function() {
+			Particle.prototype.update = function () {
 				this.x += this.vx;
 				this.y += this.vy;
 				if (this.x < 0 || this.x > W) this.vx *= -1;
@@ -810,13 +1120,78 @@
 				requestAnimationFrame(draw);
 			}
 
-			window.addEventListener('resize', function() {
+			window.addEventListener('resize', function () {
 				resize();
 				particles = Array.from({ length: CONFIG.count }, () => new Particle());
 			});
 
 			init();
 			draw();
+		})();
+	</script>
+
+	<!-- CV Viewer Modal -->
+	<div id="cvModal">
+		<div class="cv-modal-box">
+			<div class="cv-modal-header">
+				<h5>📄 Mohamed Shuhad — Curriculum Vitae</h5>
+				<div class="cv-modal-header-btns">
+					<a href="Mohamed_Shuhad_CV.pdf" download class="cv-download-btn">
+						⬇ Download PDF
+					</a>
+					<button class="cv-close-btn" onclick="closeCVModal()">✕</button>
+				</div>
+			</div>
+			<div class="cv-modal-body">
+				<iframe src="Mohamed_Shuhad_CV.pdf" title="Mohamed Shuhad CV"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function openCVModal() {
+			document.getElementById('cvModal').classList.add('open');
+			document.body.style.overflow = 'hidden';
+		}
+		function closeCVModal() {
+			document.getElementById('cvModal').classList.remove('open');
+			document.body.style.overflow = '';
+		}
+		// Close on backdrop click
+		document.getElementById('cvModal').addEventListener('click', function(e) {
+			if (e.target === this) closeCVModal();
+		});
+		// Close on Escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape') closeCVModal();
+		});
+	</script>
+
+	<!-- EmailJS: SDK + form handler -->
+	<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+	<script>
+		(function() {
+			// TODO: replace with your EmailJS User ID and Template ID
+			emailjs.init('u5tLyqUY86VpNyYQf');
+
+			const form = document.getElementById('contact-form');
+			if (!form) return;
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				document.getElementById('contact-time').value = new Date().toLocaleString();
+				const btn = document.getElementById('contact-submit');
+				btn.disabled = true;
+
+				emailjs.sendForm('service_ayznwlb', 'template_tvw7oo5', this)
+					.then(function() {
+						alert('Message sent — thank you!');
+						form.reset();
+					}, function(error) {
+						console.error('EmailJS error:', error);
+						alert('Failed to send message. See console for details.');
+					})
+					.finally(() => { btn.disabled = false; });
+			});
 		})();
 	</script>
 
