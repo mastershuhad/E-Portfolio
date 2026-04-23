@@ -98,6 +98,72 @@
 			display: block;
 			margin-bottom: 10px;
 		}
+		.proj-module {
+			display: block;
+			font-size: 10px;
+			font-weight: 600;
+			color: rgba(255,189,57,0.7);
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			margin-bottom: 6px;
+		}
+		.proj-meta-row {
+			display: flex;
+			gap: 8px;
+			align-items: baseline;
+			margin-top: 8px;
+		}
+		.proj-meta-label {
+			font-size: 10px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			color: #ffbd39;
+			white-space: nowrap;
+			min-width: 52px;
+		}
+		.proj-meta-value {
+			font-size: 12px;
+			color: rgba(255,255,255,0.75);
+			line-height: 1.5;
+		}
+		/* Image hover overlay with icons */
+		.project-card-img { position: relative; overflow: hidden; }
+		.proj-img-overlay {
+			position: absolute;
+			inset: 0;
+			background: rgba(0,0,0,0.55);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 18px;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		.project-card-wrap:hover .proj-img-overlay { opacity: 1; }
+		.proj-icon-link {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background: rgba(255,189,57,0.12);
+			border: 2px solid #ffbd39;
+			color: #ffbd39;
+			font-size: 22px;
+			text-decoration: none;
+			transition: background 0.2s, color 0.2s, transform 0.2s;
+			transform: translateY(10px);
+			transition: background 0.2s, color 0.2s, transform 0.3s;
+		}
+		.project-card-wrap:hover .proj-icon-link { transform: translateY(0); }
+		.proj-icon-link:hover {
+			background: #ffbd39;
+			color: #111;
+			text-decoration: none;
+		}
+
 		.project-card-body .proj-desc {
 			color: rgba(255,255,255,0.7);
 			font-size: 13px;
@@ -291,6 +357,57 @@
 			width: 100%;
 			height: 100%;
 			border: none;
+		}
+
+		/* Percentage label fixed to right end of full progress track */
+		.progress { position: relative; }
+		.progress-bar { position: static !important; }
+		.progress-bar span {
+			position: absolute !important;
+			right: 0 !important;
+			top: 50% !important;
+			transform: translateY(-50%) !important;
+			font-size: 12px !important;
+			font-weight: 700 !important;
+			color: #ffbd39 !important;
+			background: rgba(255,189,57,0.1) !important;
+			padding: 1px 7px !important;
+			border-radius: 4px !important;
+			border: 1px solid rgba(255,189,57,0.3) !important;
+			line-height: 1.6 !important;
+			top: -26px !important;
+			transform: none !important;
+		}
+
+		/* Skill categories */
+		.skill-category { margin-bottom: 48px; }
+		.skill-cat-header {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 24px;
+			padding-bottom: 12px;
+			border-bottom: 2px solid rgba(255,189,57,0.25);
+		}
+		.skill-cat-header h3 {
+			margin: 0;
+			font-size: 20px;
+			font-weight: 700;
+			color: #ffbd39;
+			letter-spacing: 0.5px;
+		}
+		.skill-cat-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 36px;
+			height: 36px;
+			background: rgba(255,189,57,0.12);
+			border: 1px solid rgba(255,189,57,0.35);
+			border-radius: 8px;
+			font-size: 16px;
+			color: #ffbd39;
+			flex-shrink: 0;
 		}
 
 		/* Section animated background canvas */
@@ -611,154 +728,216 @@
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Skills</h1>
 					<h2 class="mb-4">Technical Skills</h2>
-					<p>The following section presents the programming languages, tools, and technologies I have acquired
-						and applied throughout my academic studies at the University of Kelaniya.</p>
+					<p>This section outlines the programming languages, tools, and engineering skills I have developed and applied through both my academic studies and independent learning.</p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>HTML / CSS</h3>
-						<div class="progress">
-							<div class="progress-bar color-1" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								<span>90%</span>
+
+			<!-- Programming Languages -->
+			<div class="skill-category ftco-animate">
+				<div class="skill-cat-header">
+					<span class="skill-cat-icon">&#60;/&#62;</span>
+					<h3>Programming Languages</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>C</h3>
+							<div class="progress">
+								<div class="progress-bar color-1" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"><span>80%</span></div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>C</h3>
-						<div class="progress">
-							<div class="progress-bar color-2" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								<span>80%</span>
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Python</h3>
+							<div class="progress">
+								<div class="progress-bar color-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"><span>75%</span></div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Adobe Photoshop / Canva</h3>
-						<div class="progress">
-							<div class="progress-bar color-3" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								<span>80%</span>
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Java</h3>
+							<div class="progress">
+								<div class="progress-bar color-3" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"><span>40%</span></div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Git / GitHub</h3>
-						<div class="progress">
-							<div class="progress-bar color-4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								<span>80%</span>
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>JavaScript</h3>
+							<div class="progress">
+								<div class="progress-bar color-4" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"><span>70%</span></div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>AutoCAD</h3>
-						<div class="progress">
-							<div class="progress-bar color-5" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								<span>80%</span>
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Kotlin</h3>
+							<div class="progress">
+								<div class="progress-bar color-5" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"><span>70%</span></div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Figma / UI-UX Design</h3>
-						<div class="progress">
-							<div class="progress-bar color-6" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								<span>75%</span>
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>PHP</h3>
+							<div class="progress">
+								<div class="progress-bar color-6" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%"><span>25%</span></div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Python</h3>
-						<div class="progress">
-							<div class="progress-bar color-1" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								<span>75%</span>
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>HTML / CSS</h3>
+							<div class="progress">
+								<div class="progress-bar color-1" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%"><span>90%</span></div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Microsoft Office</h3>
-						<div class="progress">
-							<div class="progress-bar color-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								<span>75%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>JavaScript</h3>
-						<div class="progress">
-							<div class="progress-bar color-3" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-								<span>70%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Kotlin</h3>
-						<div class="progress">
-							<div class="progress-bar color-4" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-								<span>70%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>MySQL</h3>
-						<div class="progress">
-							<div class="progress-bar color-5" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-								<span>50%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>Java</h3>
-						<div class="progress">
-							<div class="progress-bar color-6" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-								<span>40%</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-6 animate-box">
-					<div class="progress-wrap ftco-animate">
-						<h3>PHP</h3>
-						<div class="progress">
-							<div class="progress-bar color-1" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
-								<span>25%</span>
+					<div class="col-md-4 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>MySQL</h3>
+							<div class="progress">
+								<div class="progress-bar color-2" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%"><span>50%</span></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<!-- Tools & Technologies -->
+			<div class="skill-category ftco-animate">
+				<div class="skill-cat-header">
+					<span class="skill-cat-icon">&#9881;</span>
+					<h3>Tools &amp; Technologies</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>AutoCAD <small style="color:rgba(255,255,255,0.5); font-size:11px;">Engineering Design</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"><span>80%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>EasyEDA <small style="color:rgba(255,255,255,0.5); font-size:11px;">Circuit Design &amp; Simulation</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-5" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"><span>70%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Git / GitHub <small style="color:rgba(255,255,255,0.5); font-size:11px;">Version Control</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-6" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"><span>80%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Microsoft Excel <small style="color:rgba(255,255,255,0.5); font-size:11px;">Data Analysis</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-1" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"><span>75%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Adobe Photoshop / Canva <small style="color:rgba(255,255,255,0.5); font-size:11px;">Graphic Design</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-3" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"><span>80%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Figma / UI-UX Design <small style="color:rgba(255,255,255,0.5); font-size:11px;">Interface Design</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-4" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"><span>75%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Microsoft Office <small style="color:rgba(255,255,255,0.5); font-size:11px;">Productivity Suite</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-5" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"><span>75%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>MySQL <small style="color:rgba(255,255,255,0.5); font-size:11px;">Database Management</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-6" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%"><span>50%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Cisco Packet Tracer <small style="color:rgba(255,255,255,0.5); font-size:11px;">Network Design &amp; Simulation</small></h3>
+							<div class="progress">
+								<div class="progress-bar color-1" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"><span>70%</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Engineering / Hardware Skills -->
+			<div class="skill-category ftco-animate">
+				<div class="skill-cat-header">
+					<span class="skill-cat-icon">&#128268;</span>
+					<h3>Engineering / Hardware Skills</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Circuit Design &amp; Troubleshooting</h3>
+							<div class="progress">
+								<div class="progress-bar color-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"><span>75%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Soldering &amp; PCB Design</h3>
+							<div class="progress">
+								<div class="progress-bar color-3" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"><span>70%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Electrical Wiring &amp; Safety Practices</h3>
+							<div class="progress">
+								<div class="progress-bar color-4" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%"><span>75%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Computer Hardware Assembling</h3>
+							<div class="progress">
+								<div class="progress-bar color-5" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%"><span>85%</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 animate-box">
+						<div class="progress-wrap ftco-animate">
+							<h3>Mobile &amp; Computer Software Troubleshooting</h3>
+							<div class="progress">
+								<div class="progress-bar color-6" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%"><span>85%</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</section>
 
@@ -776,12 +955,30 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="project-card-wrap ftco-animate">
-						<div class="project-card-img" style="background-image: url(images/project-1.jpg);"></div>
+						<div class="project-card-img" style="background-image: url(images/project-1.jpg);">
+							<div class="proj-img-overlay">
+								<a href="https://easyassistweb.netlify.app/" target="_blank" class="proj-icon-link" title="Live Demo">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+								</a>
+								<a href="https://github.com/mastershuhad/EasyAssist.git" target="_blank" class="proj-icon-link" title="GitHub">
+									<span class="icon-github"></span>
+								</a>
+							</div>
+						</div>
 						<div class="project-card-body">
-							<h3><a href="#">Easy Assist</a></h3>
+							<span class="proj-module">CTEC 11203 — Design Ideation and Creative Development (2022/2023)</span>
+							<h3><a href="https://easyassistweb.netlify.app/" target="_blank">Easy Assist</a></h3>
 							<span class="proj-type">Website Recommendation Platform</span>
-							<p class="proj-desc">A web platform to help users discover reliable websites across various product categories, featuring search, categorized listings, and an admin dashboard with user approval system.</p>
-							<div class="stack-badges" style="justify-content:flex-start;">
+							<p class="proj-desc"><strong style="color:rgba(255,255,255,0.6); font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Objective</strong><br>A web platform to help users discover reliable websites across various product categories, featuring search, categorized listings, and an admin dashboard with user approval system.</p>
+							<div class="proj-meta-row">
+								<span class="proj-meta-label">Role</span>
+								<span class="proj-meta-value">Full Stack Developer</span>
+							</div>
+							<div class="proj-meta-row">
+								<span class="proj-meta-label">Outcome</span>
+								<span class="proj-meta-value">Delivered a fully functional website, deployed and accessible online.</span>
+							</div>
+							<div class="stack-badges" style="justify-content:flex-start; margin-top:10px;">
 								<span class="stack-badge">HTML</span>
 								<span class="stack-badge">CSS</span>
 								<span class="stack-badge">JavaScript</span>
@@ -791,12 +988,30 @@
 				</div>
 				<div class="col-md-4">
 					<div class="project-card-wrap ftco-animate">
-						<div class="project-card-img" style="background-image: url(images/project-2.jpg);"></div>
+						<div class="project-card-img" style="background-image: url(images/project-2.jpg);">
+							<div class="proj-img-overlay">
+								<a href="https://soldi-one.vercel.app/" target="_blank" class="proj-icon-link" title="Live Demo">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+								</a>
+								<a href="https://github.com/mastershuhad/Soldi.git" target="_blank" class="proj-icon-link" title="GitHub">
+									<span class="icon-github"></span>
+								</a>
+							</div>
+						</div>
 						<div class="project-card-body">
-							<h3><a href="#">Soldi</a></h3>
+							<span class="proj-module">GTEC 13032 — Projects In Technology I (2022/2023)</span>
+							<h3><a href="https://soldi-one.vercel.app/" target="_blank">Soldi</a></h3>
 							<span class="proj-type">Investment-Based Installment Platform</span>
-							<p class="proj-desc">A web platform connecting investors with customers seeking financial support for purchasing goods, with funding requests, investor contributions, and structured installment repayments with profit-sharing.</p>
-							<div class="stack-badges" style="justify-content:flex-start;">
+							<p class="proj-desc"><strong style="color:rgba(255,255,255,0.6); font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Objective</strong><br>A web platform connecting investors with customers seeking financial support for purchasing goods, with funding requests, investor contributions, and structured installment repayments with profit-sharing.</p>
+							<div class="proj-meta-row">
+								<span class="proj-meta-label">Role</span>
+								<span class="proj-meta-value">Backend Developer</span>
+							</div>
+							<div class="proj-meta-row">
+								<span class="proj-meta-label">Outcome</span>
+								<span class="proj-meta-value">Delivered a fully functional web application, deployed and accessible online.</span>
+							</div>
+							<div class="stack-badges" style="justify-content:flex-start; margin-top:10px;">
 								<span class="stack-badge">HTML</span>
 								<span class="stack-badge">CSS</span>
 								<span class="stack-badge">JavaScript</span>
@@ -806,12 +1021,30 @@
 				</div>
 				<div class="col-md-4">
 					<div class="project-card-wrap ftco-animate">
-						<div class="project-card-img" style="background-image: url(images/project-3.jpg);"></div>
+						<div class="project-card-img" style="background-image: url(images/project-3.jpg);">
+							<div class="proj-img-overlay" style="flex-direction:column; gap:8px; padding:10px;">
+								<p style="margin:0 0 6px; font-size:10px; font-weight:700; color:#ffbd39; text-transform:uppercase; letter-spacing:1px;">Evidence</p>
+								<div style="display:flex; gap:6px; width:100%;">
+									<img src="images/electronics robot circuit .jpg" alt="Robot circuit" onclick="openEvidenceImg('images/electronics robot circuit .jpg')" style="flex:1; min-width:0; height:90px; object-fit:cover; border-radius:6px; border:1.5px solid rgba(255,189,57,0.5); cursor:zoom-in;">
+									<img src="images/eclectronics circuit .png" alt="Electronics circuit" onclick="openEvidenceImg('images/eclectronics circuit .png')" style="flex:1; min-width:0; height:90px; object-fit:cover; border-radius:6px; border:1.5px solid rgba(255,189,57,0.5); cursor:zoom-in;">
+									<img src="images/3d model .png" alt="3D model" onclick="openEvidenceImg('images/3d model .png')" style="flex:1; min-width:0; height:90px; object-fit:cover; border-radius:6px; border:1.5px solid rgba(255,189,57,0.5); cursor:zoom-in;">
+								</div>
+							</div>
+						</div>
 						<div class="project-card-body">
+							<span class="proj-module">GTEC 21023 — Fundamentals of Electronics (2023/2024)</span>
 							<h3><a href="#">Line Following Robot</a></h3>
 							<span class="proj-type">Hardware / Circuit Design</span>
-							<p class="proj-desc">Built a compact line-following robot using transistors, resistors, and logic ICs — no programming. Hardware-based control logic for real-time path tracking, demonstrating analog and digital electronics.</p>
-							<div class="stack-badges" style="justify-content:flex-start;">
+							<p class="proj-desc"><strong style="color:rgba(255,255,255,0.6); font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Objective</strong><br>Built a compact autonomous line-following robot using transistors, resistors, and logic ICs — no microcontroller or programming. Pure hardware-based control logic for real-time path detection and tracking.</p>
+							<div class="proj-meta-row">
+								<span class="proj-meta-label">Role</span>
+								<span class="proj-meta-value">Circuit Designer</span>
+							</div>
+							<div class="proj-meta-row">
+								<span class="proj-meta-label">Outcome</span>
+								<span class="proj-meta-value">Built a working autonomous line-following robot using pure hardware logic, demonstrating analog and digital electronics principles.</span>
+							</div>
+							<div class="stack-badges" style="justify-content:flex-start; margin-top:10px;">
 								<span class="stack-badge">Transistors</span>
 								<span class="stack-badge">Resistors</span>
 								<span class="stack-badge">Logic ICs</span>
@@ -831,9 +1064,7 @@
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<h1 class="big big-2">Reflect</h1>
 					<h2 class="mb-4">Reflections</h2>
-					<p>The following reflections document key learning experiences from my undergraduate studies,
-						structured to capture the experience, key learning outcomes, challenges encountered, solutions
-						applied, and areas identified for future improvement.</p>
+					<p>These reflections highlight important learning experiences from my undergraduate studies, describing what I learned, the challenges I faced, how I overcame them, and what I can improve in the future.</p>
 				</div>
 			</div>
 
@@ -841,32 +1072,14 @@
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
 					<div class="reflect-card">
-						<p
-							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
+						<p style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
 							Group Work &amp; Collaboration</p>
 						<h3 style="margin-bottom:20px;">Reflection 1: Group Project Experience</h3>
-						<p><strong>Experience:</strong> During my undergraduate studies, I participated in a
-							collaborative web development project in which our team was required to design and develop a
-							functional application. This experience provided valuable insight into how group-based
-							academic projects operate within a computing context and highlighted the importance of
-							structured teamwork.</p>
-						<p><strong>Learning:</strong> Through this experience, I developed a deeper understanding of the
-							significance of clear communication and shared responsibility within a team setting. I
-							observed how each member's individual strengths could be effectively leveraged to produce a
-							more complete and well-rounded academic outcome. Additionally, I gained practical experience
-							in applying technical knowledge acquired through lectures to a real development task.</p>
-						<p><strong>Challenges:</strong> A significant challenge encountered was coordinating tasks
-							effectively, as team members operated under varying schedules and adopted different
-							approaches to the assigned work. This occasionally resulted in delays in completing certain
-							components and required additional coordination to maintain overall project progress.</p>
-						<p><strong>Solutions:</strong> To address these coordination difficulties, the team established
-							a shared timeline with clearly defined roles and submission deadlines for each member.
-							Regular check-in meetings were also arranged to monitor progress, facilitate discussion, and
-							ensure that all members remained accountable for their respective contributions.</p>
-						<p><strong>Future Improvements:</strong> In future group projects, I intend to take a more
-							proactive role in facilitating team discussions and to advocate for establishing clear
-							communication structures and task-management systems from the outset. This will contribute
-							to a more efficient and collaborative working process.</p>
+						<p><strong>Experience:</strong> During my undergraduate studies, I worked on a group web development project where our team had to design and build a functional application. This experience helped me understand how group projects work in a real academic setting and showed me the importance of teamwork in computing.</p>
+						<p><strong>Learning:</strong> From this project, I learned how important clear communication and shared responsibility are in a team. I also saw how each member's strengths can contribute to a better final result. In addition, I was able to apply the technical knowledge I learned in lectures to a real-world development task, which improved my practical skills.</p>
+						<p><strong>Challenges:</strong> One of the main challenges was coordinating tasks among team members, as everyone had different schedules and working styles. This sometimes caused delays and made it harder to keep the project moving smoothly.</p>
+						<p><strong>Solutions:</strong> To overcome these issues, we created a shared timeline with clear roles and deadlines for each team member. We also held regular meetings to check progress, discuss problems, and make sure everyone stayed on track.</p>
+						<p><strong>Future Improvements:</strong> In future group projects, I plan to take a more active role in organizing team discussions and ensuring clear communication from the beginning. I also want to focus on better task management to make teamwork more efficient and productive.</p>
 					</div>
 				</div>
 			</div>
@@ -875,33 +1088,14 @@
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
 					<div class="reflect-card">
-						<p
-							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
-							Practical &amp; Laboratory Work</p>
-						<h3 style="margin-bottom:20px;">Reflection 2: Laboratory Sessions and Practical Work</h3>
-						<p><strong>Experience:</strong> Laboratory sessions have formed an integral component of my
-							academic programme, providing structured opportunities to engage in hands-on activities
-							related to programming, circuit design, and system analysis. These sessions complemented the
-							theoretical content delivered through lectures and enabled practical engagement with core
-							technical concepts.</p>
-						<p><strong>Learning:</strong> Through these activities, I developed a more comprehensive
-							understanding of how to apply theoretical knowledge to practical situations, troubleshoot
-							technical errors systematically, and follow established procedures with precision. I also
-							gained an appreciation for the importance of methodical working practices and technical
-							accuracy in an engineering and computing context.</p>
-						<p><strong>Challenges:</strong> A recurring challenge experienced during laboratory sessions was
-							encountering unexpected errors or obtaining incorrect outputs, which initially required
-							considerable time to diagnose and resolve. This was at times frustrating, particularly when
-							it necessitated repeating sections of the experiment.</p>
-						<p><strong>Solutions:</strong> To address these difficulties, I adopted the practice of
-							thoroughly reviewing laboratory manuals and related materials prior to each session. I also
-							made greater use of available support by consulting with lecturers and fellow students when
-							faced with technical difficulties, which improved my ability to identify and resolve issues
-							efficiently.</p>
-						<p><strong>Future Improvements:</strong> I aim to enhance my preparation before each laboratory
-							session and to further develop my problem-solving capabilities so that I can address
-							technical challenges with greater confidence and efficiency. I also intend to improve my
-							ability to document and analyse experimental results more rigorously.</p>
+						<p style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
+							Practical Work</p>
+						<h3 style="margin-bottom:20px;">Reflection 2: Practical Work — Line Following Robot</h3>
+						<p><strong>Experience:</strong> Designed and built a line following robot using infrared LEDs and transistor-based circuits to detect and follow a path autonomously, without using a microcontroller.</p>
+						<p><strong>Learning:</strong> Gained hands-on experience in building electronic circuits using transistors, working with infrared sensors, and understanding how hardware logic can control motor behavior. This helped me see how basic electronic components can be used to create automated systems.</p>
+						<p><strong>Challenges:</strong> Faced difficulties in sensor alignment and consistent detection due to lighting conditions, as well as balancing motor responses for smooth movement.</p>
+						<p><strong>Solutions:</strong> Improved performance by adjusting sensor positioning, tuning resistor values, and testing the circuit under different conditions. Repeated testing helped achieve more stable movement.</p>
+						<p><strong>Future Improvements:</strong> Plan to improve accuracy by refining the circuit design and exploring more advanced control methods in future projects.</p>
 					</div>
 				</div>
 			</div>
@@ -910,33 +1104,30 @@
 			<div class="row ftco-animate mb-5">
 				<div class="col-md-12">
 					<div class="reflect-card">
-						<p
-							style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
+						<p style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
+							Laboratory Sessions</p>
+						<h3 style="margin-bottom:20px;">Reflection 3: Laboratory Sessions — Networking &amp; Virtual Systems</h3>
+						<p><strong>Experience:</strong> Worked with Cisco Packet Tracer to design and simulate network topologies, configuring routers, switches, and IP addressing. Also set up an Ubuntu-based virtual server and client machines to practise file sharing within a local network.</p>
+						<p><strong>Learning:</strong> Developed practical understanding of networking concepts such as IP addressing, subnetting, routing, and client-server architecture. Improved skills in using command-line tools for configuration and troubleshooting.</p>
+						<p><strong>Challenges:</strong> Faced difficulties in correctly configuring network settings, especially ensuring proper connectivity between server and clients within the same subnet.</p>
+						<p><strong>Solutions:</strong> Resolved issues by verifying IP configurations and using tools like <code>ping</code> and <code>ifconfig</code> to troubleshoot connectivity problems. Peer discussions also helped in identifying errors.</p>
+						<p><strong>Future Improvements:</strong> Plan to explore advanced networking topics such as routing protocols and network security, and gain experience with more complex network setups.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Reflection 4 -->
+			<div class="row ftco-animate mb-5">
+				<div class="col-md-12">
+					<div class="reflect-card">
+						<p style="color:#ffbd39; font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:8px;">
 							Academic Communication</p>
-						<h3 style="margin-bottom:20px;">Reflection 3: Communication and Presentation Skills (DELT
-							Module)</h3>
-						<p><strong>Experience:</strong> The DELT module provided structured opportunities throughout the
-							academic year to develop communication and presentation competencies through formal
-							presentations, impromptu speaking tasks, and group discussions. These activities formed a
-							significant component of the module and required consistent engagement and preparation.</p>
-						<p><strong>Learning:</strong> Through regular participation in these activities, I developed the
-							ability to organise ideas in a logical and coherent manner, apply appropriate academic
-							language, and present information clearly to an audience. I also improved my capacity to
-							respond spontaneously during impromptu speaking tasks, which required the ability to think
-							critically and communicate effectively under time constraints.</p>
-						<p><strong>Challenges:</strong> I initially experienced a degree of nervousness during formal
-							presentations and, in particular, during impromptu speaking activities that required
-							immediate and unscripted responses. This occasionally affected my fluency and the overall
-							clarity of my delivery.</p>
-						<p><strong>Solutions:</strong> To address this, I engaged in regular speaking practice, prepared
-							structured key points prior to formal presentations, and actively participated in all
-							available classroom speaking opportunities to gradually build confidence and reduce anxiety.
-							The constructive feedback provided by the module lecturer was also highly beneficial in
-							identifying specific areas for improvement.</p>
-						<p><strong>Future Improvements:</strong> I intend to continue developing my public speaking
-							skills, with a particular focus on delivering more fluent and well-structured presentations.
-							I also aim to improve my ability to respond with greater clarity during spontaneous speaking
-							tasks and to make more effective use of visual aids to communicate complex ideas.</p>
+						<h3 style="margin-bottom:20px;">Reflection 4: Presentation Skills (DELT Module)</h3>
+						<p><strong>Experience:</strong> Participated in presentations, impromptu speaking, and group discussions as part of the DELT module, helping develop communication skills.</p>
+						<p><strong>Learning:</strong> Improved ability to organise ideas clearly, use appropriate academic language, and communicate effectively. Also developed confidence in handling spontaneous speaking tasks.</p>
+						<p><strong>Challenges:</strong> Experienced nervousness during presentations and difficulty with impromptu speaking, which affected fluency.</p>
+						<p><strong>Solutions:</strong> Practised speaking regularly, prepared key points for presentations, and actively participated in class activities. Feedback from the lecturer helped improve performance.</p>
+						<p><strong>Future Improvements:</strong> Plan to further improve fluency, confidence, and clarity in speaking, and make better use of visual aids in presentations.</p>
 					</div>
 				</div>
 			</div>
@@ -1311,6 +1502,12 @@
 		</div>
 	</div>
 
+	<!-- Evidence Image Lightbox -->
+	<div id="evidenceModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; cursor:zoom-out;" onclick="closeEvidenceImg()">
+		<img id="evidenceModalImg" src="" alt="Evidence" style="max-width:90vw; max-height:88vh; border-radius:10px; box-shadow:0 8px 48px rgba(0,0,0,0.7); cursor:default; border:2px solid rgba(255,189,57,0.3);" onclick="event.stopPropagation()">
+		<button onclick="closeEvidenceImg()" style="position:fixed; top:18px; right:24px; background:rgba(255,255,255,0.1); border:none; color:#fff; font-size:32px; line-height:1; width:44px; height:44px; border-radius:50%; cursor:pointer;">&times;</button>
+	</div>
+
 	<script>
 		function openCVModal() {
 			document.getElementById('cvModal').classList.add('open');
@@ -1326,8 +1523,19 @@
 		});
 		// Close on Escape key
 		document.addEventListener('keydown', function(e) {
-			if (e.key === 'Escape') closeCVModal();
+			if (e.key === 'Escape') { closeCVModal(); closeEvidenceImg(); }
 		});
+
+		function openEvidenceImg(src) {
+			document.getElementById('evidenceModalImg').src = src;
+			var m = document.getElementById('evidenceModal');
+			m.style.display = 'flex';
+			document.body.style.overflow = 'hidden';
+		}
+		function closeEvidenceImg() {
+			var m = document.getElementById('evidenceModal');
+			if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
+		}
 	</script>
 
 	<!-- EmailJS: SDK + form handler -->
