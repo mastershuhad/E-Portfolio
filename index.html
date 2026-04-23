@@ -3,7 +3,7 @@
 
 <head>
 	<title>Shuhad's Portfolio</title>
-	<link rel="icon" type="image/png" href="images/Icon.jpg">
+	<link rel="icon" type="image/jpeg" href="images/Icon.jpg">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -61,7 +61,7 @@
 		.project-card-wrap {
 			border-radius: 10px;
 			overflow: hidden;
-			background: rgba(255,255,255,0.08);
+			background: #171c27;
 			box-shadow: 0 20px 69px -27px rgba(0,0,0,0.17);
 			margin-bottom: 30px;
 			transition: transform 0.3s, box-shadow 0.3s;
@@ -130,7 +130,7 @@
 
 		/* Dark contact form styles (updated to match provided design) */
 		:root{
-			--panel-bg: rgba(255,255,255,0.04);
+			--panel-bg: #171c27;
 			--panel-bg-strong: #1a1a2e;
 			--accent: #ffbd39;
 			--panel-shadow: 0 8px 30px rgba(0,0,0,0.5);
@@ -294,7 +294,7 @@
 		}
 
 		/* Section animated background canvas */
-		.animated-bg { position: relative; overflow: hidden; }
+		.animated-bg { position: relative; overflow: hidden; background: #0d1117; }
 		.animated-bg > .container { position: relative; z-index: 1; }
 		.section-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 	</style>
@@ -323,7 +323,7 @@
 			</div>
 		</div>
 	</nav>
-	<section id="home-section" class="hero" style="position:relative; overflow:hidden;">
+	<section id="home-section" class="hero" style="position:relative; overflow:hidden; background:#0d1117;">
 		<canvas id="heroCanvas"
 			style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;"></canvas>
 		<div class="home-slider  owl-carousel" style="position:relative; z-index:1;">
@@ -520,7 +520,7 @@
 					<h4 class="mb-3" style="color:#ffbd39;">Personal Values</h4>
 					<ul>
 						<li><strong>Integrity</strong> — I uphold honesty and transparency in all academic and
-							professional endeavours</li>
+							professional struggles</li>
 						<li><strong>Continuous Learning</strong> — I consistently seek opportunities to expand my
 							knowledge and technical competencies</li>
 						<li><strong>Dedication</strong> — I apply full commitment and effort to every academic task and
@@ -1128,27 +1128,26 @@
 	<script src="js/main.js"></script>
 
 	<script>
-			emailjs.init('u5tLyqUY86VpNyYQf');
 		(function () {
 			const canvas = document.getElementById('heroCanvas');
 			const ctx = canvas.getContext('2d');
+			const heroSection = document.getElementById('home-section');
 			let W, H, particles;
 
 			const CONFIG = {
 				count: 80,
-				speed: 0.9,
+				speed: 0.4,
 				dotRadius: 2.25,
-				dotColor: 'rgba(255, 189, 57, 0.95)',
-				lineColor: 'rgba(255, 189, 57, ',
-				lineDistance: 160,
-				mouseRadius: 180
+				dotColor: 'rgba(255, 255, 255, 0.9)',
+				lineColor: 'rgba(255, 255, 255, ',
+				lineDistance: 160
 			};
 
-			const mouse = { x: -9999, y: -9999, active: false };
-
 			function resize() {
-				W = canvas.width = canvas.offsetWidth;
-				H = canvas.height = canvas.offsetHeight;
+				const sw = heroSection ? heroSection.offsetWidth : window.innerWidth;
+				const sh = heroSection ? heroSection.offsetHeight : window.innerHeight;
+				W = canvas.width = sw > 0 ? sw : window.innerWidth;
+				H = canvas.height = sh > 100 ? sh : window.innerHeight;
 			}
 
 			function Particle() {
@@ -1160,29 +1159,12 @@
 			}
 
 			Particle.prototype.update = function () {
-				// simple bounds
 				this.x += this.vx;
 				this.y += this.vy;
 				if (this.x < -10) this.x = W + 10;
 				if (this.x > W + 10) this.x = -10;
 				if (this.y < -10) this.y = H + 10;
 				if (this.y > H + 10) this.y = -10;
-
-				// slight attraction/repel to mouse when active
-				if (mouse.active) {
-					const dx = this.x - mouse.x;
-					const dy = this.y - mouse.y;
-					const dist = Math.sqrt(dx * dx + dy * dy);
-					if (dist < CONFIG.mouseRadius && dist > 0) {
-						// move a bit away from mouse for a ripple effect
-						const pull = (CONFIG.mouseRadius - dist) / CONFIG.mouseRadius * 0.5;
-						this.vx += (dx / dist) * pull;
-						this.vy += (dy / dist) * pull;
-					}
-				}
-				// slow down velocities a bit for stability
-				this.vx *= 0.995;
-				this.vy *= 0.995;
 			};
 
 			function init() {
@@ -1192,21 +1174,16 @@
 
 			function draw() {
 				ctx.clearRect(0, 0, W, H);
-
-				// draw lines between particles
 				for (let i = 0; i < particles.length; i++) {
 					const p = particles[i];
 					p.update();
-
-					// draw dot with small glow
 					ctx.beginPath();
 					ctx.fillStyle = CONFIG.dotColor;
-					ctx.shadowColor = CONFIG.dotColor;
+					ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
 					ctx.shadowBlur = 6;
 					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
 					ctx.fill();
 					ctx.shadowBlur = 0;
-
 					for (let j = i + 1; j < particles.length; j++) {
 						const q = particles[j];
 						const dx = p.x - q.x;
@@ -1222,35 +1199,9 @@
 							ctx.stroke();
 						}
 					}
-
-					// draw line to mouse
-					if (mouse.active) {
-						const dxm = p.x - mouse.x;
-						const dym = p.y - mouse.y;
-						const distm = Math.sqrt(dxm * dxm + dym * dym);
-						if (distm < CONFIG.mouseRadius) {
-							const alphaM = 1 - distm / CONFIG.mouseRadius;
-							ctx.beginPath();
-							ctx.moveTo(p.x, p.y);
-							ctx.lineTo(mouse.x, mouse.y);
-							ctx.strokeStyle = CONFIG.lineColor + (alphaM * 0.45) + ')';
-							ctx.lineWidth = 0.8 * alphaM;
-							ctx.stroke();
-						}
-					}
 				}
-
 				requestAnimationFrame(draw);
 			}
-
-			// mouse events
-			canvas.addEventListener('mousemove', function (e) {
-				const rect = canvas.getBoundingClientRect();
-				mouse.x = e.clientX - rect.left;
-				mouse.y = e.clientY - rect.top;
-				mouse.active = true;
-			});
-			canvas.addEventListener('mouseleave', function () { mouse.active = false; });
 
 			window.addEventListener('resize', function () {
 				resize();
@@ -1268,17 +1219,19 @@
 				let W, H, particles;
 
 				const CONFIG = {
-					speed: 0.8,
+					speed: 0.4,
 					dotRadius: 2.0,
-					dotColor: 'rgba(255, 189, 57, 0.95)',
-					lineColor: 'rgba(255, 189, 57,',
-					lineDistance: 120,
-					mouseRadius: 120
+					dotColor: 'rgba(255, 255, 255, 0.9)',
+					lineColor: 'rgba(255, 255, 255,',
+					lineDistance: 130
 				};
 
-				const mouse = { x:-9999, y:-9999, active:false };
-
-				function resize(){ W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+				function resize(){
+					const sec = canvas.parentElement;
+					W = canvas.width = sec ? sec.offsetWidth : window.innerWidth;
+					H = canvas.height = sec ? sec.offsetHeight : 600;
+					if (H < 100) H = canvas.height = sec ? sec.offsetHeight : 600;
+				}
 
 				function Particle(){
 					this.x = Math.random() * W;
@@ -1294,51 +1247,47 @@
 					if (this.x > W + 10) this.x = -10;
 					if (this.y < -10) this.y = H + 10;
 					if (this.y > H + 10) this.y = -10;
-
-					if (mouse.active){
-						const dx = this.x - mouse.x; const dy = this.y - mouse.y;
-						const dist = Math.sqrt(dx*dx + dy*dy);
-						if (dist < CONFIG.mouseRadius && dist > 0){
-							const pull = (CONFIG.mouseRadius - dist) / CONFIG.mouseRadius * 0.45;
-							this.vx += (dx / dist) * pull; this.vy += (dy / dist) * pull;
-						}
-					}
-					this.vx *= 0.995; this.vy *= 0.995;
 				};
 
 				function init(){
 					resize();
-					const area = Math.max(1, Math.floor((W*H) / 50000));
-					const count = Math.max(18, Math.min(80, area * 6));
+					const area = Math.max(1, Math.floor((W * H) / 50000));
+					const count = Math.max(20, Math.min(80, area * 6));
 					particles = Array.from({ length: count }, () => new Particle());
 				}
 
 				function draw(){
-					ctx.clearRect(0,0,W,H);
-					for (let i=0;i<particles.length;i++){
+					ctx.clearRect(0, 0, W, H);
+					for (let i = 0; i < particles.length; i++){
 						const p = particles[i]; p.update();
-						ctx.beginPath(); ctx.fillStyle = CONFIG.dotColor; ctx.shadowColor = CONFIG.dotColor; ctx.shadowBlur = 6;
-						ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
-						for (let j=i+1;j<particles.length;j++){
-							const q = particles[j]; const dx = p.x - q.x; const dy = p.y - q.y; const dist = Math.sqrt(dx*dx + dy*dy);
-							if (dist < CONFIG.lineDistance){ const alpha = 1 - dist/CONFIG.lineDistance; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.strokeStyle = CONFIG.lineColor + (alpha*0.28) + ')'; ctx.lineWidth = 0.6*alpha + 0.15; ctx.stroke(); }
+						ctx.beginPath(); ctx.fillStyle = CONFIG.dotColor;
+						ctx.shadowColor = 'rgba(255,255,255,0.8)'; ctx.shadowBlur = 6;
+						ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0;
+						for (let j = i + 1; j < particles.length; j++){
+							const q = particles[j];
+							const dx = p.x - q.x; const dy = p.y - q.y;
+							const dist = Math.sqrt(dx*dx + dy*dy);
+							if (dist < CONFIG.lineDistance){
+								const alpha = 1 - dist / CONFIG.lineDistance;
+								ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+								ctx.strokeStyle = CONFIG.lineColor + (alpha * 0.3) + ')';
+								ctx.lineWidth = 0.6 * alpha + 0.15; ctx.stroke();
+							}
 						}
-						if (mouse.active){ const dxm = p.x - mouse.x; const dym = p.y - mouse.y; const distm = Math.sqrt(dxm*dxm + dym*dym); if (distm < CONFIG.mouseRadius){ const alphaM = 1 - distm/CONFIG.mouseRadius; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(mouse.x,mouse.y); ctx.strokeStyle = CONFIG.lineColor + (alphaM*0.4) + ')'; ctx.lineWidth = 0.7*alphaM; ctx.stroke(); } }
 					}
 					requestAnimationFrame(draw);
 				}
 
-				canvas.addEventListener('mousemove', function(e){ const rect = canvas.getBoundingClientRect(); mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top; mouse.active = true; });
-				canvas.addEventListener('mouseleave', function(){ mouse.active = false; });
 				window.addEventListener('resize', function(){ resize(); init(); });
 				init(); draw();
 			}
 
 			// attach a canvas to each .animated-bg section
 			document.querySelectorAll('.animated-bg').forEach(function(sec){
-				// skip if already has canvas
 				if (sec.querySelector('.section-canvas')) return;
-				const c = document.createElement('canvas'); c.className = 'section-canvas'; sec.insertBefore(c, sec.firstChild);
+				const c = document.createElement('canvas');
+				c.className = 'section-canvas';
+				sec.insertBefore(c, sec.firstChild);
 				createParticles(c);
 			});
 		})();
@@ -1385,7 +1334,6 @@
 	<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
 	<script>
 		(function() {
-			// TODO: replace with your EmailJS User ID and Template ID
 			emailjs.init('u5tLyqUY86VpNyYQf');
 
 			const form = document.getElementById('contact-form');
